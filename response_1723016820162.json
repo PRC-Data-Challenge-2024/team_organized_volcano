@@ -1,0 +1,24 @@
+{
+  "members": [
+    {
+      "leader": false,
+      "member_name": "Malte Cordts",
+      "email": "cordtsmalte@googlemail.com"
+    },
+    {
+      "leader": false,
+      "member_name": "Sabrina Kerz",
+      "email": "sabrina.kerz@outlook.de"
+    }
+  ],
+  "team_id": "5963b2d2-8f7d-4132-b324-623f1564179f",
+  "team_name": "team_organized_volcano",
+  "registration_date": "2024-08-07",
+  "team_lead": {
+    "leader": true,
+    "member_name": "Dennis Schorn",
+    "email": "dennis.schorn@mail.de"
+  },
+  "bucket_access_key": "ZG58zJvKhts2bkOX",
+  "bucket_access_secret": "eU95azmBpK82kg96mE0TNzsWov3OvP2d"
+}
