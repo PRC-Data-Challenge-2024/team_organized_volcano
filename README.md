@@ -6,7 +6,8 @@ Contribution of Malte Cordts, Sabrina Kerz, and Dennis Schorn to the [PRC Data C
 Thursday, August 22 18:30 lcl (16:30 UTC)
 
 ## Notebooks
-[Initial Data Review](https://colab.research.google.com/drive/1WMxJp5L7vl9GBKhZzXFJeXjvI1MgSNON#scrollTo=p6q00gZ2aoNO)
+[Initial Data Review](https://colab.research.google.com/drive/1WMxJp5L7vl9GBKhZzXFJeXjvI1MgSNON#scrollTo=p6q00gZ2aoNO) \
+[Flight List Based Model](https://colab.research.google.com/drive/1h_4Kw_Kx4-c8agqgn95yTxK5HRhB2JIF)
 
 ## Miscellaneous Information
 [Introduction Slides](https://drive.google.com/file/d/1aDVe83t2N_of7b_DXSE8yEuQ1MaV0RpH/view?usp=drive_link)
