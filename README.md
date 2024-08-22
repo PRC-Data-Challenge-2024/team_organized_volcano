@@ -8,8 +8,8 @@ Contribution of Malte Cordts, Sabrina Kerz, and Dennis Schorn to the [PRC Data C
 Thursday, August 22 18:30 lcl (16:30 UTC)
 
 ## KPIs
-RMSE Train : 3617.819106712358 kg
-RMSE Test: 3617.819106712358 kg
+RMSE Train : 3617.819106712358 kg \
+RMSE Test: 3617.819106712358 kg\
 
 ## Notebooks
 [Initial Data Review](https://colab.research.google.com/drive/1WMxJp5L7vl9GBKhZzXFJeXjvI1MgSNON#scrollTo=p6q00gZ2aoNO) \
