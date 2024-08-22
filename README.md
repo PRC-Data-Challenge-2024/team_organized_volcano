@@ -9,7 +9,7 @@ Thursday, August 22 18:30 lcl (16:30 UTC)
 
 ## KPIs
 RMSE Train : 3617.819106712358 kg \
-RMSE Test: 3617.819106712358 kg \
+RMSE Test: 3989.357890082463 kg 
 
 ## Notebooks
 [Initial Data Review](https://colab.research.google.com/drive/1WMxJp5L7vl9GBKhZzXFJeXjvI1MgSNON#scrollTo=p6q00gZ2aoNO) \
