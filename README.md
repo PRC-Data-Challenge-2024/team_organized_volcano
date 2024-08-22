@@ -5,10 +5,10 @@ Contribution of Malte Cordts, Sabrina Kerz, and Dennis Schorn to the [PRC Data C
 [Leaderboard](https://datacomp.opensky-network.org/results)
 
 ## Next Meeting
-Thursday, August 22 18:30 lcl (16:30 UTC)
+Sunday, September 8 17:00 lcl (15:00 UTC)
 
 ## KPIs
-RMSE Train : 3617.819106712358 kg \
+RMSE Train: 3617.819106712358 kg \
 RMSE Test: 3989.357890082463 kg 
 
 ## Notebooks
