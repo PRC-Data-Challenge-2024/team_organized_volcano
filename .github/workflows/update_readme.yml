@@ -28,6 +28,10 @@ jobs:
           # Use sed to replace the content between the placeholders
           sed -i '/<!--result-start-->/,/<!--result-end-->/c\<!--result-start-->\n'"$result"'\n<!--result-end-->' README.md
 
+      - name: Clean up temporary files
+        run: |
+          rm result.txt
+
       - name: Commit and push changes
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}  # Use your PAT for authentication

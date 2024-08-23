@@ -164,3 +164,7 @@ cython_debug/
 # Ignore minIO client
 mc.exe
 github_token.txt
+
+challenge_set.csv
+submission_set.csv
+submission.csv
