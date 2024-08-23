@@ -1,0 +1,34 @@
+name: Update README with Results
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Runs once every day at midnight UTC
+  workflow_dispatch: # Allows manual triggering
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Run curl command
+        run: |
+          result=$(curl -X 'GET' \
+            'https://datacomp.opensky-network.org/api/rankings' \
+            -H 'accept: application/json' | jq)
+          echo "$result" > result.txt
+
+      - name: Update README
+        run: |
+          # Replace the placeholder in README with the actual result
+          sed -i 's|<!--result-placeholder-->|'"$result"'|g' README.md
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add README.md
+          git commit -m 'Update README with latest OpenSky data'
+          git push
