@@ -26,6 +26,8 @@ jobs:
           sed -i 's|<!--result-placeholder-->|'"$result"'|g' README.md
 
       - name: Commit and push changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT }}  # Use your PAT for authentication
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'

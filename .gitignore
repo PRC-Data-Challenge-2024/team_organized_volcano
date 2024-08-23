@@ -163,3 +163,4 @@ cython_debug/
 
 # Ignore minIO client
 mc.exe
+github_token.txt
