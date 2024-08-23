@@ -9,7 +9,9 @@ Sunday, September 8 17:00 lcl (15:00 UTC)
 
 ## Current rankings
 
-
+<!--result-start-->
+This will be replaced with the latest data.
+<!--result-end-->
 
 ## KPIs 
 ### 1. Model (Flight List Based Model, Gradient Boost)
