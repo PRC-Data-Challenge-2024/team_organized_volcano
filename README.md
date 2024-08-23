@@ -8,7 +8,7 @@ Contribution of Malte Cordts, Sabrina Kerz, and Dennis Schorn to the [PRC Data C
 Sunday, September 8 17:00 lcl (15:00 UTC)
 
 ## Current rankings
-<!--result-placeholder-->
+
 
 
 ## KPIs 
