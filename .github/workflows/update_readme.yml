@@ -26,7 +26,7 @@ jobs:
           result=$(cat result.txt)
           
           # Use sed to replace the content between the placeholders
-          sed -i '/<!--result-start-->/,/<!--result-end-->/c\<!--result-start-->\n'"$result"'\n<!--result-end-->' README.md
+          sed -i '/<!--result-start-->/,/<!--result-end-->/c\<!--result-start-->\n'"$escaped_result"'\n<!--result-end-->' README.md
 
       - name: Clean up temporary files
         run: |
