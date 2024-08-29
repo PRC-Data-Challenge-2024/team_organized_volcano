@@ -9,6 +9,8 @@ Sunday, September 8 17:00 lcl (15:00 UTC)
 
 ## Current rankings
 
+Available [here](https://datacomp.opensky-network.org/api/rankings)
+
 <!--result-start-->
 []
 <!--result-end-->
