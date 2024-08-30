@@ -7,7 +7,7 @@ from sklearn.ensemble import HistGradientBoostingRegressor as HGBR
 from sklearn.preprocessing import LabelEncoder
 import joblib
 
-def data_manipulation(df):#
+def data_manipulation(df):
 
   '''
   Input: pandas dataframe of either challenge_set or submission set
@@ -51,7 +51,8 @@ def data_manipulation(df):#
 
 def train_tow_hgbr(challenge_df):
   '''
-  This function downloads the challenge dataset and
+  Input: Challenge dataframe (flightlist only)
+  Output: Trained ML model
   '''
 
   # Data manipulation
@@ -80,6 +81,11 @@ def train_tow_hgbr(challenge_df):
 
 
 def predict_tow_hgbr(model_path, submission_df):
+
+  '''
+  Input: path to the saved model, submission dataset
+  Output: sumbmission with predicted tow
+  '''
 
   model = joblib.load('hgbr_model.joblib')
 
