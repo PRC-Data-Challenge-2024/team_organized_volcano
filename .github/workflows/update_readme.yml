@@ -15,18 +15,23 @@ jobs:
 
       - name: Run curl command
         run: |
+          # Fetch the result using curl and format it using jq
           result=$(curl -X 'GET' \
             'https://datacomp.opensky-network.org/api/rankings' \
-            -H 'accept: application/json' | jq)
+            -H 'accept: application/json' | jq .)
           echo "$result" > result.txt
 
       - name: Replace content between placeholders
         run: |
-          # Read the result into a variable
-          result=$(cat result.txt)
-          
           # Use sed to replace the content between the placeholders
-          sed -i '/<!--result-start-->/,/<!--result-end-->/c\<!--result-start-->\n'"$result"'\n<!--result-end-->' README.md
+          sed -i '/<!--result-start-->/,/<!--result-end-->/{
+              /<!--result-start-->/!{
+              /<!--result-end-->/!d;
+              }
+          }' README.md
+
+          # Insert the new result between the placeholders
+          sed -i '/<!--result-start-->/r result.txt' README.md
 
       - name: Clean up temporary files
         run: |

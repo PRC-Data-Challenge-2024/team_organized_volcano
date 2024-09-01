@@ -24,4 +24,3 @@ print(submission_df.head())
 submission_df["tow"] = 100000
 submission_df = submission_df[["flight_id", "tow"]]
 submission_df.to_csv("submission.csv", index=False)
-
