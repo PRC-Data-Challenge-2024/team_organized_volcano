@@ -12,50 +12,15 @@ Sunday, September 8 17:00 lcl (15:00 UTC)
 Available [here](https://datacomp.opensky-network.org/api/rankings)
 
 <!--result-start-->
-[
-  {
-    "rmse": 7975.11,
-    "rank": 5,
-    "team_name": "team_likable_jelly",
-    "file_version": "v1"
-  },
-  {
-    "rmse": 58319.3558,
-    "rank": 7,
-    "team_name": "team_organized_volcano",
-    "file_version": "v0"
-  },
-  {
-    "rmse": 10740.28,
-    "rank": 6,
-    "team_name": "team_sincere_quicksand",
-    "file_version": "v0"
-  },
-  {
-    "rmse": 4103.79,
-    "rank": 4,
-    "team_name": "team_affectionate_bridge",
-    "file_version": "v2"
-  },
-  {
-    "rmse": 3736.27,
-    "rank": 3,
-    "team_name": "team_inventive_emu",
-    "file_version": "v1"
-  },
-  {
-    "rmse": 3633.08,
-    "rank": 2,
-    "team_name": "team_gentle_wreath",
-    "file_version": "v3"
-  },
-  {
-    "rmse": 3438.97,
-    "rank": 1,
-    "team_name": "team_faithful_napkin",
-    "file_version": "v2"
-  }
-]
+| Rank  Team Name                 RMSE        File Version |
+| ----  ---------                 ----        ------------ |
+| 5     team_likable_jelly        7975.11     v1 |
+| 7     team_organized_volcano    58319.3558  v0 |
+| 6     team_sincere_quicksand    10740.28    v0 |
+| 4     team_affectionate_bridge  4103.79     v2 |
+| 3     team_inventive_emu        3736.27     v1 |
+| 2     team_gentle_wreath        3633.08     v3 |
+| 1     team_faithful_napkin      3438.97     v2 |
 <!--result-end-->
 
 ## KPIs 
