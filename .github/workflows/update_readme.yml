@@ -26,7 +26,8 @@ jobs:
             ["| Rank | Team Name | RMSE | File Version |",
              "| ---- | --------- | ---- | ------------ |"] +
             (.[] |
-             ["| \(.rank) | \(.team_name | if . == \"team_organized_volcano\" then \"**\" + . + \"**\" else . end) | \(.rmse) | \(.file_version) |"]) |
+             ["| \(.rank) | " + (if .team_name == "team_organized_volcano" then "**\(.team_name)**" else .team_name end) +
+             " | \(.rmse) | \(.file_version) |"]) |
             .[]')
 
           # Save the table to a file
