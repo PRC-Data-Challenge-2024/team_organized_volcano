@@ -14,25 +14,25 @@ Available [here](https://datacomp.opensky-network.org/api/rankings)
 <!--result-start-->
 | Rank | Team Name | RMSE | File Version |
 | ---- | --------- | ---- | ------------ |
-| 5 | team_likable_jelly | 7975.11 | v1 |
-| Rank | Team Name | RMSE | File Version |
-| ---- | --------- | ---- | ------------ |
-| 7 | team_organized_volcano | 58319.3558 | v0 |
-| Rank | Team Name | RMSE | File Version |
-| ---- | --------- | ---- | ------------ |
-| 6 | team_sincere_quicksand | 10740.28 | v0 |
-| Rank | Team Name | RMSE | File Version |
-| ---- | --------- | ---- | ------------ |
-| 4 | team_affectionate_bridge | 4103.79 | v2 |
-| Rank | Team Name | RMSE | File Version |
-| ---- | --------- | ---- | ------------ |
-| 3 | team_inventive_emu | 3736.27 | v1 |
+| 1 | team_faithful_napkin | 3438.97 | v2 |
 | Rank | Team Name | RMSE | File Version |
 | ---- | --------- | ---- | ------------ |
 | 2 | team_gentle_wreath | 3633.08 | v3 |
 | Rank | Team Name | RMSE | File Version |
 | ---- | --------- | ---- | ------------ |
-| 1 | team_faithful_napkin | 3438.97 | v2 |
+| 3 | team_inventive_emu | 3736.27 | v1 |
+| Rank | Team Name | RMSE | File Version |
+| ---- | --------- | ---- | ------------ |
+| 4 | team_affectionate_bridge | 4103.79 | v2 |
+| Rank | Team Name | RMSE | File Version |
+| ---- | --------- | ---- | ------------ |
+| 5 | team_likable_jelly | 7975.11 | v1 |
+| Rank | Team Name | RMSE | File Version |
+| ---- | --------- | ---- | ------------ |
+| 6 | team_sincere_quicksand | 10740.28 | v0 |
+| Rank | Team Name | RMSE | File Version |
+| ---- | --------- | ---- | ------------ |
+| 7 | **team_organized_volcano** | 58319.3558 | v0 |
 <!--result-end-->
 
 ## KPIs 
