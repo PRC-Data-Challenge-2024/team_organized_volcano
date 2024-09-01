@@ -13,13 +13,21 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Run curl command
+      - name: Run curl command and convert to Markdown table
         run: |
-          # Fetch the result using curl and format it using jq
+          # Fetch the JSON data
           result=$(curl -X 'GET' \
             'https://datacomp.opensky-network.org/api/rankings' \
-            -H 'accept: application/json' | jq .)
-          echo "$result" > result.txt
+            -H 'accept: application/json')
+
+          # Convert JSON to Markdown table format
+          table=$(echo "$result" | jq -r '. |
+            " | Rank | Team Name | RMSE | File Version |",
+            " |------|-----------|------|--------------|",
+            map(" | \(.rank) | \(.team_name) | \(.rmse) | \(.file_version) |") | .[]')
+
+          # Save the table to a file
+          echo "$table" > result_table.txt
 
       - name: Replace content between placeholders
         run: |
@@ -30,12 +38,12 @@ jobs:
               }
           }' README.md
 
-          # Insert the new result between the placeholders
-          sed -i '/<!--result-start-->/r result.txt' README.md
+          # Insert the new table between the placeholders
+          sed -i '/<!--result-start-->/r result_table.txt' README.md
 
       - name: Clean up temporary files
         run: |
-          rm result.txt
+          rm result_table.txt
 
       - name: Commit and push changes
         env:
