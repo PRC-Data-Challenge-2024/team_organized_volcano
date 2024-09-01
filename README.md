@@ -13,35 +13,21 @@ Available [here](https://datacomp.opensky-network.org/api/rankings)
 
 <!--result-start-->
 | Rank | Team Name | RMSE | File Version |
-| Rank | Team Name | RMSE | File Version |
 | ---- | --------- | ---- | ------------ |
-
 | 1 | team_faithful_napkin | 3438.97 | v2 |
-| Rank | Team Name | RMSE | File Version |
-
 | 2 | team_gentle_wreath | 3633.08 | v3 |
-| Rank | Team Name | RMSE | File Version |
-
 | 3 | team_inventive_emu | 3736.27 | v1 |
-| Rank | Team Name | RMSE | File Version |
-
 | 4 | team_affectionate_bridge | 4103.79 | v2 |
-| Rank | Team Name | RMSE | File Version |
-
 | 5 | team_likable_jelly | 7975.11 | v1 |
-| Rank | Team Name | RMSE | File Version |
-
 | 6 | team_sincere_quicksand | 10740.28 | v0 |
-| Rank | Team Name | RMSE | File Version |
-
 | 7 | **team_organized_volcano** | 58319.3558 | v0 |
 <!--result-end-->
 
 ## KPIs 
 ### 1. Model (Flight List Based Model, Gradient Boost)
-RMSE Train: 3617.819106712358 kg 
+RMSE Train: 3360.5953623984747 kg 
 
-RMSE Test: 3989.357890082463 kg 
+RMSE Test:3695.7355259853975 kg 
 
 ## Notebooks
 [Initial Data Review](https://colab.research.google.com/drive/1WMxJp5L7vl9GBKhZzXFJeXjvI1MgSNON#scrollTo=p6q00gZ2aoNO) 
