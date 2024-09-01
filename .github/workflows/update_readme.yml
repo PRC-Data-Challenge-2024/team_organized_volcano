@@ -20,12 +20,13 @@ jobs:
             'https://datacomp.opensky-network.org/api/rankings' \
             -H 'accept: application/json')
 
-          # Convert JSON to Markdown table format
+          # Convert JSON to Markdown table format, with bold for our team and sorting by rank
           table=$(echo "$result" | jq -r '
+            sort_by(.rank) |
             ["| Rank | Team Name | RMSE | File Version |",
              "| ---- | --------- | ---- | ------------ |"] +
             (.[] |
-             ["| \(.rank) | \(.team_name) | \(.rmse) | \(.file_version) |"]) |
+             ["| \(.rank) | \(.team_name | if . == \"team_organized_volcano\" then \"**\" + . + \"**\" else . end) | \(.rmse) | \(.file_version) |"]) |
             .[]')
 
           # Save the table to a file
