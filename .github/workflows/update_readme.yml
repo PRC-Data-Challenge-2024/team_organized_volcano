@@ -28,7 +28,7 @@ jobs:
             (.[] |
              ["| \(.rank) | " + (if .team_name == "team_organized_volcano" then "**\(.team_name)**" else .team_name end) +
              " | \(.rmse) | \(.file_version) |"]) |
-            .[]')
+            .[]' | sed 's/| ---- | --------- | ---- | ------------ |//g' | awk 'NR==2{print "| Rank | Team Name | RMSE | File Version |\n| ---- | --------- | ---- | ------------ |"} 1')
 
           # Save the table to a file
           echo "$table" > result_table.txt
