@@ -12,7 +12,50 @@ Sunday, September 8 17:00 lcl (15:00 UTC)
 Available [here](https://datacomp.opensky-network.org/api/rankings)
 
 <!--result-start-->
-
+[
+  {
+    "rmse": 7975.11,
+    "rank": 5,
+    "team_name": "team_likable_jelly",
+    "file_version": "v1"
+  },
+  {
+    "rmse": 58319.3558,
+    "rank": 7,
+    "team_name": "team_organized_volcano",
+    "file_version": "v0"
+  },
+  {
+    "rmse": 10740.28,
+    "rank": 6,
+    "team_name": "team_sincere_quicksand",
+    "file_version": "v0"
+  },
+  {
+    "rmse": 4103.79,
+    "rank": 4,
+    "team_name": "team_affectionate_bridge",
+    "file_version": "v2"
+  },
+  {
+    "rmse": 3736.27,
+    "rank": 3,
+    "team_name": "team_inventive_emu",
+    "file_version": "v1"
+  },
+  {
+    "rmse": 3633.08,
+    "rank": 2,
+    "team_name": "team_gentle_wreath",
+    "file_version": "v3"
+  },
+  {
+    "rmse": 3438.97,
+    "rank": 1,
+    "team_name": "team_faithful_napkin",
+    "file_version": "v2"
+  }
+]
 <!--result-end-->
 
 ## KPIs 
