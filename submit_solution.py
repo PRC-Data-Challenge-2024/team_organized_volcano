@@ -15,9 +15,9 @@ command = f"mc alias set dc24 https://s3.opensky-network.org/ ZG58zJvKhts2bkOX e
           f"&& mc alias list " \
           f"&&  mc cp submission.csv dc24/submission/{sub_file}"
 
-if not os.path.exists("submission.csv"):
+if not os.path.exists("data/submission.csv"):
     raise Exception("Submission file does not exist, please save the submission as "
-                    "'submission.csv' into this folder and try again :)")
+                    "'data/submission.csv' into the data folder and try again :)")
 else:
     try:
         subprocess.run(command, shell=True, check=True)

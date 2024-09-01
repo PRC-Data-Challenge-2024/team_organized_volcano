@@ -23,15 +23,16 @@ jobs:
           # Convert JSON to Markdown table format, with bold for our team and sorting by rank
           table=$(echo "$result" | jq -r '
             sort_by(.rank) |
-            ["| Rank | Team Name | RMSE | File Version |",
-             "| ---- | --------- | ---- | ------------ |"] +
-            (.[] |
-             ["| \(.rank) | " + (if .team_name == "team_organized_volcano" then "**\(.team_name)**" else .team_name end) +
-             " | \(.rmse) | \(.file_version) |"]) |
-            .[]' | sed 's/| ---- | --------- | ---- | ------------ |//g' | awk 'NR==2{print "| Rank | Team Name | RMSE | File Version |\n| ---- | --------- | ---- | ------------ |"} 1')
+            .[] |
+            "| \(.rank) | " + (if .team_name == "team_organized_volcano" then "**\(.team_name)**" else .team_name end) +
+            " | \(.rmse) | \(.file_version) |"')
 
-          # Save the table to a file
-          echo "$table" > result_table.txt
+          # Add the table header
+          echo "| Rank | Team Name | RMSE | File Version |" > result_table.txt
+          echo "| ---- | --------- | ---- | ------------ |" >> result_table.txt
+
+          # Append the table rows
+          echo "$table" >> result_table.txt
 
       - name: Replace content between placeholders
         run: |
