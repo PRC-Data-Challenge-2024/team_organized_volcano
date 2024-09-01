@@ -168,3 +168,5 @@ github_token.txt
 data/challenge_set.csv
 data/submission_set.csv
 data/submission.csv
+
+hgbr_model.joblib

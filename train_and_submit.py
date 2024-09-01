@@ -24,5 +24,5 @@ model = train_tow_hgbr(challenge_df)
 result = predict_tow_hgbr(submission_df)
 
 # 4. Submit the data (default path) with a new, manual version number
-exit()
-submit_solution(version_number=1)
+msg = submit_solution(version_number=1)
+print(msg)

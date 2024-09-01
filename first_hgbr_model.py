@@ -59,7 +59,7 @@ def train_tow_hgbr(challenge_df, model_path='hgbr_model.joblib'):
     prepared_challenge_df = data_manipulation(challenge_df)
 
     # Define feature and target column
-    feature_cols = ['aircraft_type_en', 'weekday', 'airline_en', 'wtc_en', 'year sin', 'arrival day sin',
+    feature_cols = ['aircraft_type_en', 'weekday', 'airline_en', 'wtc_en', 'year sin',
                     'flight_duration', 'taxiout_time', 'flown_distance']
     target_col = 'tow'
 
@@ -94,7 +94,7 @@ def predict_tow_hgbr(submission_df, model_path="hgbr_model.joblib", submission_p
     prepared_submission_df = data_manipulation(submission_df)
 
     # Define feature and target column
-    feature_cols = ['aircraft_type_en', 'weekday', 'airline_en', 'wtc_en', 'year sin', 'arrival day sin',
+    feature_cols = ['aircraft_type_en', 'weekday', 'airline_en', 'wtc_en', 'year sin',
                     'flight_duration', 'taxiout_time', 'flown_distance']
 
     # Assuming 'target_variable' is the name of your target variable column
