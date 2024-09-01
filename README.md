@@ -25,9 +25,9 @@ Available [here](https://datacomp.opensky-network.org/api/rankings)
 
 ## KPIs 
 ### 1. Model (Flight List Based Model, Gradient Boost)
-RMSE Train: 3617.819106712358 kg 
+RMSE Train: 3360.5953623984747 kg 
 
-RMSE Test: 3989.357890082463 kg 
+RMSE Test:3695.7355259853975 kg 
 
 ## Notebooks
 [Initial Data Review](https://colab.research.google.com/drive/1WMxJp5L7vl9GBKhZzXFJeXjvI1MgSNON#scrollTo=p6q00gZ2aoNO) 
