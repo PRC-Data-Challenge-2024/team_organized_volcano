@@ -22,10 +22,11 @@ jobs:
 
           # Convert JSON to Markdown table format
           table=$(echo "$result" | jq -r '
-            ["Rank", "Team Name", "RMSE", "File Version"],
-            ["----", "---------", "----", "------------"],
-            (.[] | [(.rank // "N/A"), .team_name, .rmse, .file_version]) |
-            @tsv' | column -t -s $'\t' | sed 's/^/| /; s/$/ |/')
+            ["| Rank | Team Name | RMSE | File Version |",
+             "| ---- | --------- | ---- | ------------ |"] +
+            (.[] |
+             ["| \(.rank) | \(.team_name) | \(.rmse) | \(.file_version) |"]) |
+            .[]')
 
           # Save the table to a file
           echo "$table" > result_table.txt
