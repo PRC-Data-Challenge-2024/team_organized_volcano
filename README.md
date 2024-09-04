@@ -16,11 +16,13 @@ Available [here](https://datacomp.opensky-network.org/api/rankings)
 | ---- | --------- | ---- | ------------ |
 | 1 | team_likable_jelly | 3310.61 | v2 |
 | 2 | team_faithful_napkin | 3438.97 | v2 |
-| 3 | team_gentle_wreath | 3633.08 | v3 |
-| 4 | team_inventive_emu | 3736.27 | v1 |
+| 3 | team_inventive_emu | 3541.69 | v2 |
+| 4 | team_gentle_wreath | 3633.08 | v3 |
 | 5 | team_affectionate_bridge | 4103.79 | v2 |
-| 6 | team_sincere_quicksand | 10740.28 | v0 |
-| 7 | **team_organized_volcano** | 58319.3558 | v0 |
+| 6 | team_zippy_river | 5962.65 | v1 |
+| 7 | team_gentle_dragon | 5990.08 | v1 |
+| 8 | team_sincere_quicksand | 10740.28 | v0 |
+| 9 | **team_organized_volcano** | 58319.3558 | v0 |
 <!--result-end-->
 
 ## KPIs 
