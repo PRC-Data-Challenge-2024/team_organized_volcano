@@ -23,6 +23,7 @@ Available [here](https://datacomp.opensky-network.org/api/rankings)
 | 7 | team_gentle_dragon | 5990.08 | v1 |
 | 8 | team_sincere_quicksand | 10740.28 | v0 |
 | 9 | **team_organized_volcano** | 58319.3558 | v0 |
+| 10 | team_strong_fossil | 67670.26 | v0 |
 <!--result-end-->
 
 ## KPIs 
