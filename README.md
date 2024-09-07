@@ -21,11 +21,13 @@ Available [here](https://datacomp.opensky-network.org/api/rankings)
 | 5 | team_tiny_rainbow | 3613.76 | v4 |
 | 6 | team_strong_fossil | 4067.41 | v1 |
 | 7 | team_affectionate_bridge | 4103.79 | v2 |
-| 8 | team_zippy_river | 5962.65 | v1 |
-| 9 | team_gentle_dragon | 5990.08 | v1 |
-| 10 | team_sincere_quicksand | 10740.28 | v0 |
-| 11 | team_energetic_quiver | 16265.46 | v3 |
-| 12 | **team_organized_volcano** | 58319.3558 | v0 |
+| 8 | team_genuine_emu | 4806.61 | v1 |
+| 9 | team_zippy_river | 5962.65 | v1 |
+| 10 | team_gentle_dragon | 5990.08 | v1 |
+| 11 | team_sincere_quicksand | 10740.28 | v0 |
+| 12 | team_energetic_quiver | 16265.46 | v3 |
+| 13 | team_affectionate_whistle | 29015.24 | v0 |
+| 14 | **team_organized_volcano** | 58319.3558 | v0 |
 <!--result-end-->
 
 ## KPIs 
