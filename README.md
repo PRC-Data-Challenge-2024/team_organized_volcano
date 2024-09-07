@@ -16,16 +16,16 @@ Available [here](https://datacomp.opensky-network.org/api/rankings)
 | ---- | --------- | ---- | ------------ |
 | 1 | team_likable_jelly | 3310.61 | v2 |
 | 2 | team_faithful_napkin | 3438.97 | v2 |
-| 3 | team_inventive_emu | 3541.69 | v2 |
-| 4 | team_gentle_wreath | 3586.1 | v4 |
-| 5 | team_tiny_rainbow | 4047.67 | v2 |
-| 6 | team_affectionate_bridge | 4103.79 | v2 |
-| 7 | team_zippy_river | 5962.65 | v1 |
-| 8 | team_gentle_dragon | 5990.08 | v1 |
-| 9 | team_sincere_quicksand | 10740.28 | v0 |
-| 10 | team_energetic_quiver | 16265.46 | v3 |
-| 11 | **team_organized_volcano** | 58319.3558 | v0 |
-| 12 | team_strong_fossil | 67670.26 | v0 |
+| 3 | team_inventive_emu | 3471.06 | v3 |
+| 4 | team_gentle_wreath | 3473.09 | v6 |
+| 5 | team_tiny_rainbow | 3613.76 | v4 |
+| 6 | team_strong_fossil | 4067.41 | v1 |
+| 7 | team_affectionate_bridge | 4103.79 | v2 |
+| 8 | team_zippy_river | 5962.65 | v1 |
+| 9 | team_gentle_dragon | 5990.08 | v1 |
+| 10 | team_sincere_quicksand | 10740.28 | v0 |
+| 11 | team_energetic_quiver | 16265.46 | v3 |
+| 12 | **team_organized_volcano** | 58319.3558 | v0 |
 <!--result-end-->
 
 ## KPIs 
