@@ -63,11 +63,12 @@ mc alias set dc24 https://s3.opensky-network.org/ ZG58zJvKhts2bkOX eU95azmBpK82k
 - We want to start with a simple model, using only the flight list
 - Then iterate & improve it by adding handcrafted features
 - Next include data from the actual trajectories, without temporal features
-- Then move to more complex models if neccessary, eventually ending up with a transformer
+- Then move to more complex models if necessary, eventually ending up with a transformer
 - Optimise for RMSE, since this is used in the final scoring of our submission
 - 
 
 ## Current ToDos
-- [ ] Extract landing weight from trajectories if possible (Dennis)
+- [ ] Create a list of aircraft types with comparable MTOW (Dennis)
+- [ ] Create a table including OEW, MTOW, and possibly the category from above (Dennis)
 - [ ] Improve simple model & features (Sabrina)
 - [ ] Create download & upload scripts (Malte)
