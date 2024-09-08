@@ -19,8 +19,8 @@ Available [here](https://datacomp.opensky-network.org/api/rankings)
 | 3 | team_inventive_emu | 3471.06 | v3 |
 | 4 | team_gentle_wreath | 3473.09 | v6 |
 | 5 | team_tiny_rainbow | 3496.83 | v5 |
-| 6 | team_mindful_donkey | 3615.15 | v1 |
-| 7 | **team_organized_volcano** | 3646.84 | v3 |
+| 6 | **team_organized_volcano** | 3517.28 | v4 |
+| 7 | team_mindful_donkey | 3615.15 | v1 |
 | 8 | team_genuine_emu | 4042.14 | v4 |
 | 9 | team_strong_fossil | 4067.41 | v1 |
 | 10 | team_affectionate_bridge | 4103.79 | v2 |
