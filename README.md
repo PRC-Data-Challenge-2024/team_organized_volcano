@@ -18,7 +18,7 @@ Available [here](https://datacomp.opensky-network.org/api/rankings)
 | 2 | team_faithful_napkin | 3438.97 | v2 |
 | 3 | team_inventive_emu | 3471.06 | v3 |
 | 4 | team_gentle_wreath | 3473.09 | v6 |
-| 5 | team_tiny_rainbow | 3613.76 | v4 |
+| 5 | team_tiny_rainbow | 3496.83 | v5 |
 | 6 | team_strong_fossil | 4067.41 | v1 |
 | 7 | team_affectionate_bridge | 4103.79 | v2 |
 | 8 | team_genuine_emu | 4806.61 | v1 |
@@ -27,7 +27,7 @@ Available [here](https://datacomp.opensky-network.org/api/rankings)
 | 11 | team_sincere_quicksand | 10740.28 | v0 |
 | 12 | team_energetic_quiver | 16265.46 | v3 |
 | 13 | team_affectionate_whistle | 29015.24 | v0 |
-| 14 | **team_organized_volcano** | 58319.3558 | v0 |
+| 14 | **team_organized_volcano** | 32765.63 | v1 |
 <!--result-end-->
 
 ## KPIs 
