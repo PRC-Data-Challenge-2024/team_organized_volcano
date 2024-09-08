@@ -21,7 +21,7 @@ Available [here](https://datacomp.opensky-network.org/api/rankings)
 | 5 | team_tiny_rainbow | 3496.83 | v5 |
 | 6 | team_strong_fossil | 4067.41 | v1 |
 | 7 | team_affectionate_bridge | 4103.79 | v2 |
-| 8 | team_genuine_emu | 4806.61 | v1 |
+| 8 | team_genuine_emu | 4227.99 | v3 |
 | 9 | team_zippy_river | 5962.65 | v1 |
 | 10 | team_gentle_dragon | 5990.08 | v1 |
 | 11 | team_sincere_quicksand | 10740.28 | v0 |
