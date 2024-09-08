@@ -4,6 +4,7 @@ import os
 # manual submission:
 # # mc cp data/submission.csv dc24/submissions/team_organized_volcano_v1_5963b2d2-8f7d-4132-b324-623f1564179f.csv
 
+
 def submit_solution(version_number=-1):
     path_to_infos = "response_1723016820162.json"
     with open(path_to_infos) as fh:

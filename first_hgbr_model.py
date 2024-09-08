@@ -21,9 +21,8 @@ def data_manipulation(challenge_df, submission_df):
     columns_to_encode = ['aircraft_type', 'wtc', 'airline', 'country_code_adep', 'country_code_ades']
 
     for col in columns_to_encode:
-
         # Combine datasets for current column
-        combined_data = pd.concat([df1[col], df2[col]], axis = 0)
+        combined_data = pd.concat([df1[col], df2[col]], axis=0)
 
         # Initialize LabelEncoder
         encoder = LabelEncoder()
@@ -35,10 +34,7 @@ def data_manipulation(challenge_df, submission_df):
         df1[f"{col}_en"] = encoder.transform(df1[col]).astype(np.int32)
         df2[f"{col}_en"] = encoder.transform(df2[col]).astype(np.int32)
 
-    
-
-    for df in [df1,df2]:
-
+    for df in [df1, df2]:
         # Transform dates into datetime objects
         df['date'] = pd.to_datetime(df['date'])
         df['actual_offblock_time'] = pd.to_datetime(df['actual_offblock_time'])
@@ -59,7 +55,7 @@ def data_manipulation(challenge_df, submission_df):
         df['date sin'] = np.sin(df['date_unix'] * (2 * np.pi / day))
         df['year sin'] = np.sin(df['date_unix'] * (2 * np.pi / year))
 
-    return [df1,df2]
+    return [df1, df2]
 
 
 def train_tow_hgbr(challenge_df, model_path='hgbr_model.joblib'):
@@ -69,7 +65,7 @@ def train_tow_hgbr(challenge_df, model_path='hgbr_model.joblib'):
     """
 
     # Define feature and target column
-    feature_cols = ['country_code_adep_en', 'country_code_ades_en','aircraft_type_en', 'weekday', 'airline_en', 
+    feature_cols = ['country_code_adep_en', 'country_code_ades_en', 'aircraft_type_en', 'weekday', 'airline_en',
                     'wtc_en', 'year sin',
                     'flight_duration', 'taxiout_time', 'flown_distance']
     target_col = 'tow'
@@ -82,12 +78,12 @@ def train_tow_hgbr(challenge_df, model_path='hgbr_model.joblib'):
 
     hgbr = HGBR(random_state=42,
                 loss='squared_error',
-                min_samples_leaf=26,
-                max_depth = 9,
+                min_samples_leaf=16,
+                max_depth=9,
                 categorical_features=[0, 1, 2, 3, 4, 5],
                 max_iter=2000,
                 l2_regularization=0.1,
-                learning_rate = 0.078)
+                learning_rate=0.078)
     hgbr.fit(X, y)
 
     y_pred = hgbr.predict(X)
@@ -108,7 +104,7 @@ def predict_tow_hgbr(submission_df, model_path="hgbr_model.joblib", submission_p
     model = joblib.load(model_path)
 
     # Define feature and target column
-    feature_cols = ['country_code_adep_en', 'country_code_ades_en','aircraft_type_en', 
+    feature_cols = ['country_code_adep_en', 'country_code_ades_en', 'aircraft_type_en',
                     'weekday', 'airline_en', 'wtc_en', 'year sin',
                     'flight_duration', 'taxiout_time', 'flown_distance']
 
