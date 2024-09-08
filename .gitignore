@@ -77,6 +77,7 @@ target/
 
 # Jupyter Notebook
 .ipynb_checkpoints
+submission_test.ipynb
 
 # IPython
 profile_default/
@@ -122,6 +123,7 @@ celerybeat.pid
 *.sage.py
 
 # Environments
+.conda
 .env
 .venv
 env/
