@@ -107,6 +107,6 @@ def predict_tow_hgbr(submission_df, model_path="hgbr_model.joblib", submission_p
     result_df = prepared_submission_df[["flight_id", "tow"]]
 
     # Save the predictions
-    result_df.to_csv(submission_path)
+    result_df.to_csv(submission_path, index=False)
 
     return result_df
