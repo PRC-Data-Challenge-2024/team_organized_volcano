@@ -5,7 +5,7 @@ Contribution of Malte Cordts, Sabrina Kerz, and Dennis Schorn to the [PRC Data C
 [Leaderboard](https://datacomp.opensky-network.org/results)
 
 ## Next Meeting
-Sunday, September 8 17:00 lcl (15:00 UTC)
+Monday, September 9 18:30 lcl (16:30 UTC)
 
 ## Current rankings
 
