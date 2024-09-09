@@ -172,3 +172,4 @@ data/submission_set.csv
 data/submission.csv
 
 hgbr_model.joblib
+data/2022-01-01.parquet
