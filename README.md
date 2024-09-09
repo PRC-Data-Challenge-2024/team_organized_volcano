@@ -68,8 +68,44 @@ mc alias set dc24 https://s3.opensky-network.org/ ZG58zJvKhts2bkOX eU95azmBpK82k
 - Optimise for RMSE, since this is used in the final scoring of our submission
 - 
 
-## Current ToDos
-- [ ] Create a list of aircraft types with comparable MTOW (Dennis)
-- [ ] Create a table including OEW, MTOW, and possibly the category from above (Dennis)
-- [ ] Improve simple model & features (Sabrina)
-- [ ] Create download & upload scripts (Malte)
+# Model Features Overview
+## FightList
+This table lists all the features in the flightlist and indicates whether each feature is used in the models.
+
+### Raw Features
+| Feature          | 1. HGBR Model |
+| ---------------------------------------- | ------- |
+| flight_id (unique ID)                    | ❌      |
+| callsign (obfuscated callsign)           | ❌      |
+| adep (Aerodrome of DEParture)            | ❌      |
+| ades (Aerodrome of DEStination)          | ❌      |
+| name_adep (ADEP airport name)            | ❌      |
+| name_ades (ADES airport name)            | ❌      |
+| country_code_adep (ADEP country code)    | ✅      |
+| country_code_ades (ADES country code)    | ✅      |
+| date (date of flight)                    | ❌      |
+| actual_offblock_time (AOBT)              | ❌      |
+| arrival_time (ARVT)                      | ❌      |
+| aircraft_type (aircraft type code)       | ✅      |
+| wtc (Wake Turbulence Category)           | ✅      |
+| airline (Aircraft Operator code)         | ✅      |
+| flight_duration (flight duration in mins)| ✅      |
+| taxiout_time (taxi-out time in mins)     | ✅      |
+| flown_distance (route length in nmi)     | ✅      |
+
+### Engineered Features
+| Feature                                  | 1. HGBR Model |
+| ---------------------------------------- | ------- |
+|weekday                                 | ✅      |
+| year sin                                | ✅      |
+| arrival day sin                         | ✅      |
+| start_hour                              | ✅      |
+
+## Trajectories
+
+### Engineered Features
+| Feature                                  | 1. HGBR Model |
+| ---------------------------------------- | ------- |
+|Average climb rate, 1st flight phase   | ✅      |
+|Average climb rate, 3rd flight phase    | ✅     |
+|Average altitude, 2nd flight phase    | ✅     |
