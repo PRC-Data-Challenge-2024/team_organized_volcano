@@ -6,6 +6,11 @@ from first_hgbr_model import train_tow_hgbr, predict_tow_hgbr, data_manipulation
 from submit_solution import submit_solution
 import warnings
 
+# Set global feature cols for our model
+feature_cols = ['country_code_adep_en', 'country_code_ades_en', 'aircraft_type_en', 'weekday', 'airline_en',
+                    'wtc_en', 'year sin', 'arrival day sin',
+                    'flight_duration', 'taxiout_time', 'flown_distance', 'start_hour']
+
 # Ignore Deprecations warnings
 warnings.filterwarnings("ignore", category=FutureWarning)
 
@@ -25,11 +30,11 @@ submission_df = pd.read_csv('data/submission_set.csv')
 prepared_challenge_df, prepared_submission_df = data_manipulation(challenge_df, submission_df)
 
 # 2. Train the model & save it to the default path
-model = train_tow_hgbr(prepared_challenge_df)
+model = train_tow_hgbr(prepared_challenge_df, feature_cols=feature_cols)
 
 # 3. Predict on the submission data (using default model path)
-result = predict_tow_hgbr(prepared_submission_df)
+result = predict_tow_hgbr(prepared_submission_df, feature_cols=feature_cols)
 
 # 4. Submit the data (default path) with a new, manual version number
-msg = submit_solution(version_number=2)
+msg = submit_solution(version_number=4)
 print(msg)

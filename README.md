@@ -5,7 +5,7 @@ Contribution of Malte Cordts, Sabrina Kerz, and Dennis Schorn to the [PRC Data C
 [Leaderboard](https://datacomp.opensky-network.org/results)
 
 ## Next Meeting
-Sunday, September 8 17:00 lcl (15:00 UTC)
+Monday, September 9 18:30 lcl (16:30 UTC)
 
 ## Current rankings
 
@@ -19,15 +19,16 @@ Available [here](https://datacomp.opensky-network.org/api/rankings)
 | 3 | team_inventive_emu | 3471.06 | v3 |
 | 4 | team_gentle_wreath | 3473.09 | v6 |
 | 5 | team_tiny_rainbow | 3496.83 | v5 |
-| 6 | team_strong_fossil | 4067.41 | v1 |
-| 7 | team_affectionate_bridge | 4103.79 | v2 |
-| 8 | team_genuine_emu | 4806.61 | v1 |
-| 9 | team_zippy_river | 5962.65 | v1 |
-| 10 | team_gentle_dragon | 5990.08 | v1 |
-| 11 | team_sincere_quicksand | 10740.28 | v0 |
-| 12 | team_energetic_quiver | 16265.46 | v3 |
-| 13 | team_affectionate_whistle | 29015.24 | v0 |
-| 14 | **team_organized_volcano** | 32765.63 | v1 |
+| 6 | **team_organized_volcano** | 3517.28 | v4 |
+| 7 | team_mindful_donkey | 3615.15 | v1 |
+| 8 | team_genuine_emu | 4042.14 | v4 |
+| 9 | team_strong_fossil | 4067.41 | v1 |
+| 10 | team_affectionate_bridge | 4103.79 | v2 |
+| 11 | team_zippy_river | 5962.65 | v1 |
+| 12 | team_gentle_dragon | 5990.08 | v1 |
+| 13 | team_sincere_quicksand | 10740.28 | v0 |
+| 14 | team_energetic_quiver | 16265.46 | v3 |
+| 15 | team_affectionate_whistle | 29015.24 | v0 |
 <!--result-end-->
 
 ## KPIs 
@@ -63,11 +64,12 @@ mc alias set dc24 https://s3.opensky-network.org/ ZG58zJvKhts2bkOX eU95azmBpK82k
 - We want to start with a simple model, using only the flight list
 - Then iterate & improve it by adding handcrafted features
 - Next include data from the actual trajectories, without temporal features
-- Then move to more complex models if neccessary, eventually ending up with a transformer
+- Then move to more complex models if necessary, eventually ending up with a transformer
 - Optimise for RMSE, since this is used in the final scoring of our submission
 - 
 
 ## Current ToDos
-- [ ] Extract landing weight from trajectories if possible (Dennis)
+- [ ] Create a list of aircraft types with comparable MTOW (Dennis)
+- [ ] Create a table including OEW, MTOW, and possibly the category from above (Dennis)
 - [ ] Improve simple model & features (Sabrina)
 - [ ] Create download & upload scripts (Malte)
