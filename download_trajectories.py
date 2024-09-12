@@ -24,7 +24,7 @@ overlapper, sizes, current_size = 0, [], 0
 this = False
 for obj in s3.s3client.list_objects("competition-data", recursive=True): # iterates over all objects in "competition-data"
     print(obj.object_name)
-    if obj.object_name.startswith("2022-04-03"):
+    if obj.object_name.startswith("2022-12-08"):
         this = True
     if not this:
         continue
