@@ -12,21 +12,21 @@ Available [here](https://datacomp.opensky-network.org/api/rankings)
 <!--result-start-->
 | Rank | Team Name | RMSE | File Version |
 | ---- | --------- | ---- | ------------ |
-| 1 | team_honest_cactus | 2986.09 | v1 |
-| 2 | team_tiny_rainbow | 3252.33 | v18 |
-| 3 | team_likable_jelly | 3310.61 | v2 |
-| 4 | team_inventive_emu | 3334.93 | v4 |
-| 5 | team_diligent_volcano | 3384.4 | v2 |
-| 6 | team_gentle_wreath | 3427.16 | v7 |
-| 7 | team_faithful_napkin | 3438.97 | v2 |
-| 8 | **team_organized_volcano** | 3517.28 | v4 |
-| 9 | team_mindful_donkey | 3576.14 | v2 |
-| 10 | team_amazing_forest | 3717.39 | v4 |
-| 11 | team_honest_turtle | 3782.3 | v3 |
-| 12 | team_genuine_emu | 4042.14 | v4 |
-| 13 | team_strong_fossil | 4067.41 | v1 |
-| 14 | team_affectionate_bridge | 4103.79 | v2 |
-| 15 | team_zippy_river | 5676.59 | v2 |
+| 1 | team_affectionate_bridge | 2857.86 | v3 |
+| 2 | team_honest_cactus | 2986.09 | v1 |
+| 3 | team_tiny_rainbow | 3252.33 | v18 |
+| 4 | team_likable_jelly | 3310.61 | v2 |
+| 5 | team_inventive_emu | 3326.31 | v5 |
+| 6 | team_mindful_donkey | 3352.1 | v5 |
+| 7 | team_amazing_forest | 3373.99 | v7 |
+| 8 | team_diligent_volcano | 3384.4 | v2 |
+| 9 | team_gentle_wreath | 3427.16 | v7 |
+| 10 | team_faithful_napkin | 3438.97 | v2 |
+| 11 | **team_organized_volcano** | 3517.28 | v4 |
+| 12 | team_honest_turtle | 3782.3 | v3 |
+| 13 | team_genuine_emu | 4042.14 | v4 |
+| 14 | team_strong_fossil | 4067.41 | v1 |
+| 15 | team_zippy_river | 5087.38 | v3 |
 | 16 | team_gentle_dragon | 5990.08 | v1 |
 | 17 | team_sincere_quicksand | 10740.28 | v0 |
 | 18 | team_energetic_quiver | 16265.46 | v3 |
