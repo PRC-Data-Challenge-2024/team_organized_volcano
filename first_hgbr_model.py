@@ -4,7 +4,8 @@ import numpy as np
 from sklearn.ensemble import HistGradientBoostingRegressor as HGBR
 from sklearn.preprocessing import LabelEncoder
 import joblib
-from sklearn.metrics import mean_squared_error
+from sklearn.metrics import mean_squared_error, r2_score
+from sklearn.model_selection import train_test_split
 
 
 def data_manipulation(challenge_df,
@@ -16,6 +17,11 @@ def data_manipulation(challenge_df,
 
     df1 = challenge_df.copy()
     df2 = submission_df.copy()
+
+    # Import list of icao codes and mtow
+    icao_list = pd.read_csv('icao_code-mtow.csv')
+    df1 = df1.merge(icao_list, on = 'aircraft_type', how = 'left')
+    df2 = df2.merge(icao_list, on = 'aircraft_type', how = 'left')
 
     columns_to_encode = ['aircraft_type', 'wtc', 'airline', 'country_code_adep', 'country_code_ades']
 
@@ -59,7 +65,7 @@ def data_manipulation(challenge_df,
 
 def train_tow_hgbr(challenge_df,
                    feature_cols,
-                   model_path='hgbr_model.joblib'):
+                   model_path='hgbr_model.joblib', test = False):
     """
     Input: Challenge dataframe (flightlist only), path to save the model to
     Output: Trained ML model
@@ -77,18 +83,46 @@ def train_tow_hgbr(challenge_df,
                 loss='squared_error',
                 min_samples_leaf=16,
                 max_depth=9,
-                categorical_features=[0, 1, 2, 3, 4, 5, 11],
+                categorical_features=[0, 1, 2, 3, 4, 5, 11, 12],
                 max_iter=2000,
                 l2_regularization=0.1,
                 learning_rate=0.078)
-    hgbr.fit(X, y)
 
-    y_pred = hgbr.predict(X)
-    rmse = np.sqrt(mean_squared_error(y, y_pred))
-    print(f"The RMSE of the trained model is {rmse}")
+    # If this is a test run (Test = True) implement a train test split
+    if test == True:
+        #Train test split
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+        # Train model on training data
+        hgbr.fit(X_train, y_train)
+        # Make predictions
+        y_train_pred = hgbr.predict(X_train)
+        y_test_pred = hgbr.predict(X_test)
+        # Evaluate the model
+        train_rmse = np.sqrt(mean_squared_error(y_train, y_train_pred))
+        train_r2 = r2_score(y_train, y_train_pred)
 
-    # Save the model to a file
-    joblib.dump(hgbr, model_path)
+        test_rmse = np.sqrt(mean_squared_error(y_test, y_test_pred))
+        test_r2 = r2_score(y_test, y_test_pred)
+
+        print("Train RMSE:", train_rmse)
+        print("Train R^2:", train_r2)
+        print("Test RMSE:", test_rmse)
+        print("Test R^2:", test_r2)
+
+        # Save the model to a file
+        joblib.dump(hgbr, model_path)
+    
+    else:
+        # Train model on wholw challenge set
+        hgbr.fit(X, y)
+
+        y_pred = hgbr.predict(X)
+        rmse = np.sqrt(mean_squared_error(y, y_pred))
+        print(f"The RMSE of the trained model is {rmse}")
+
+        # Save the model to a file
+        joblib.dump(hgbr, model_path)
+
     return hgbr
 
 

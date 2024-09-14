@@ -1,4 +1,4 @@
-ICAO code,MTOW [kg],MTOW group
+aircraft_type,mtow,mtow_group
 A10,22700,0
 A124,405060,5
 A19N,75500,1
