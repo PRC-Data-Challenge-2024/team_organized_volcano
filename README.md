@@ -2,10 +2,8 @@
 
 Contribution of Malte Cordts, Sabrina Kerz, and Dennis Schorn to the [PRC Data Challenge 2024](https://ansperformance.eu/study/data-challenge/).
 
-[Leaderboard](https://datacomp.opensky-network.org/results)
-
 ## Next Meeting
-Monday, September 9 18:30 lcl (16:30 UTC)
+Monday, September 23 18:00 lcl (16:00 UTC)
 
 ## Current rankings
 
@@ -14,21 +12,26 @@ Available [here](https://datacomp.opensky-network.org/api/rankings)
 <!--result-start-->
 | Rank | Team Name | RMSE | File Version |
 | ---- | --------- | ---- | ------------ |
-| 1 | team_likable_jelly | 3310.61 | v2 |
-| 2 | team_faithful_napkin | 3438.97 | v2 |
-| 3 | team_inventive_emu | 3471.06 | v3 |
-| 4 | team_gentle_wreath | 3473.09 | v6 |
-| 5 | team_tiny_rainbow | 3496.83 | v5 |
-| 6 | **team_organized_volcano** | 3517.28 | v4 |
-| 7 | team_mindful_donkey | 3615.15 | v1 |
-| 8 | team_genuine_emu | 4042.14 | v4 |
-| 9 | team_strong_fossil | 4067.41 | v1 |
-| 10 | team_affectionate_bridge | 4103.79 | v2 |
-| 11 | team_zippy_river | 5962.65 | v1 |
-| 12 | team_gentle_dragon | 5990.08 | v1 |
-| 13 | team_sincere_quicksand | 10740.28 | v0 |
-| 14 | team_energetic_quiver | 16265.46 | v3 |
-| 15 | team_affectionate_whistle | 29015.24 | v0 |
+| 1 | team_affectionate_bridge | 2857.86 | v3 |
+| 2 | team_honest_cactus | 2986.09 | v1 |
+| 3 | team_honest_turtle | 3060.35 | v5 |
+| 4 | team_amazing_forest | 3196.1 | v8 |
+| 5 | team_tiny_rainbow | 3252.33 | v18 |
+| 6 | team_likable_jelly | 3310.61 | v2 |
+| 7 | team_inventive_emu | 3326.31 | v5 |
+| 8 | team_mindful_donkey | 3352.1 | v5 |
+| 9 | team_diligent_volcano | 3384.4 | v2 |
+| 10 | team_gentle_wreath | 3427.16 | v7 |
+| 11 | team_faithful_napkin | 3438.97 | v2 |
+| 12 | **team_organized_volcano** | 3517.28 | v4 |
+| 13 | team_genuine_emu | 4042.14 | v4 |
+| 14 | team_strong_fossil | 4067.41 | v1 |
+| 15 | team_zippy_river | 5087.38 | v3 |
+| 16 | team_gentle_dragon | 5990.08 | v1 |
+| 17 | team_sincere_quicksand | 10740.28 | v0 |
+| 18 | team_energetic_quiver | 16265.46 | v3 |
+| 19 | team_unbelievable_donkey | 19826.41 | v2 |
+| 20 | team_affectionate_whistle | 29015.24 | v0 |
 <!--result-end-->
 
 ## KPIs 
@@ -68,8 +71,44 @@ mc alias set dc24 https://s3.opensky-network.org/ ZG58zJvKhts2bkOX eU95azmBpK82k
 - Optimise for RMSE, since this is used in the final scoring of our submission
 - 
 
-## Current ToDos
-- [ ] Create a list of aircraft types with comparable MTOW (Dennis)
-- [ ] Create a table including OEW, MTOW, and possibly the category from above (Dennis)
-- [ ] Improve simple model & features (Sabrina)
-- [ ] Create download & upload scripts (Malte)
+# Model Features Overview
+## FightList
+This table lists all the features in the flightlist and indicates whether each feature is used in the models.
+
+### Raw Features
+| Feature          | 1. HGBR Model |
+| ---------------------------------------- | ------- |
+| flight_id (unique ID)                    | ❌      |
+| callsign (obfuscated callsign)           | ❌      |
+| adep (Aerodrome of DEParture)            | ❌      |
+| ades (Aerodrome of DEStination)          | ❌      |
+| name_adep (ADEP airport name)            | ❌      |
+| name_ades (ADES airport name)            | ❌      |
+| country_code_adep (ADEP country code)    | ✅      |
+| country_code_ades (ADES country code)    | ✅      |
+| date (date of flight)                    | ❌      |
+| actual_offblock_time (AOBT)              | ❌      |
+| arrival_time (ARVT)                      | ❌      |
+| aircraft_type (aircraft type code)       | ✅      |
+| wtc (Wake Turbulence Category)           | ✅      |
+| airline (Aircraft Operator code)         | ✅      |
+| flight_duration (flight duration in mins)| ✅      |
+| taxiout_time (taxi-out time in mins)     | ✅      |
+| flown_distance (route length in nmi)     | ✅      |
+
+### Engineered Features
+| Feature                                  | 1. HGBR Model |
+| ---------------------------------------- | ------- |
+|weekday                                 | ✅      |
+| year sin                                | ✅      |
+| arrival day sin                         | ✅      |
+| start_hour                              | ✅      |
+
+## Trajectories
+
+### Engineered Features
+| Feature                                  | 1. HGBR Model |
+| ---------------------------------------- | ------- |
+|Average climb rate, 1st flight phase   | ✅      |
+|Average climb rate, 3rd flight phase    | ✅     |
+|Average altitude, 2nd flight phase    | ✅     |

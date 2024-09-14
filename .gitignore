@@ -170,6 +170,8 @@ github_token.txt
 data/challenge_set.csv
 data/submission_set.csv
 data/submission.csv
+data/trajectories
+data/mapping.pkl
 
 hgbr_model.joblib
 data/2022-01-01.parquet
