@@ -15,12 +15,12 @@ Available [here](https://datacomp.opensky-network.org/api/rankings)
 | 1 | team_affectionate_bridge | 2857.86 | v3 |
 | 2 | team_honest_cactus | 2986.09 | v1 |
 | 3 | team_honest_turtle | 3060.35 | v5 |
-| 4 | team_amazing_forest | 3196.1 | v8 |
+| 4 | team_amazing_forest | 3111.02 | v9 |
 | 5 | team_tiny_rainbow | 3252.33 | v18 |
-| 6 | team_likable_jelly | 3310.61 | v2 |
-| 7 | team_inventive_emu | 3326.31 | v5 |
-| 8 | team_mindful_donkey | 3352.1 | v5 |
-| 9 | team_diligent_volcano | 3384.4 | v2 |
+| 6 | team_diligent_volcano | 3273.3 | v3 |
+| 7 | team_likable_jelly | 3310.61 | v2 |
+| 8 | team_inventive_emu | 3326.31 | v5 |
+| 9 | team_mindful_donkey | 3352.1 | v5 |
 | 10 | team_gentle_wreath | 3427.16 | v7 |
 | 11 | team_faithful_napkin | 3438.97 | v2 |
 | 12 | **team_organized_volcano** | 3517.28 | v4 |
