@@ -1,6 +1,7 @@
 import pandas as pd
 
-path_to_file = "data/trajectories/2022-04-03.parquet"
+#path_to_file = "data/trajectories/2022-04-03.parquet"
+path_to_file = "data/trajectories/2022-12-30.parquet"
 
 raw_df = pd.read_parquet(path_to_file)
 
@@ -41,6 +42,7 @@ for z in all:
         result_dict[this_id] = {"wind_u": wind_u, "wind_v": wind_v, "temp": temp}
 
     except AssertionError:
+        x = z[1]
         error_dict[this_id] = nan_set.intersection(required_cols)
 
 print(f"Processed {len(all)} trajectories")

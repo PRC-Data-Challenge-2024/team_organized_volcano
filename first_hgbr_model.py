@@ -65,7 +65,7 @@ def data_manipulation(challenge_df,
 
 def train_tow_hgbr(challenge_df,
                    feature_cols,
-                   model_path='hgbr_model.joblib', test = False):
+                   model_path='hgbr_model.joblib', test=False):
     """
     Input: Challenge dataframe (flightlist only), path to save the model to
     Output: Trained ML model

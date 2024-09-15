@@ -9,7 +9,7 @@ import warnings
 # Set global feature cols for our model
 feature_cols = ['country_code_adep_en', 'country_code_ades_en', 'aircraft_type_en', 'weekday', 'airline_en',
                     'wtc_en', 'year sin', 'arrival day sin',
-                    'flight_duration', 'taxiout_time', 'flown_distance', 'start_hour']
+                    'flight_duration', 'taxiout_time', 'flown_distance', 'start_hour', 'mtow_group']
 
 # Ignore Deprecations warnings
 warnings.filterwarnings("ignore", category=FutureWarning)
@@ -36,5 +36,5 @@ model = train_tow_hgbr(prepared_challenge_df, feature_cols=feature_cols)
 result = predict_tow_hgbr(prepared_submission_df, feature_cols=feature_cols)
 
 # 4. Submit the data (default path) with a new, manual version number
-msg = submit_solution(version_number=4)
+msg = submit_solution(version_number=5)
 print(msg)
