@@ -12,18 +12,18 @@ Available [here](https://datacomp.opensky-network.org/api/rankings)
 <!--result-start-->
 | Rank | Team Name | RMSE | File Version |
 | ---- | --------- | ---- | ------------ |
-| 1 | team_affectionate_bridge | 2857.86 | v3 |
-| 2 | team_honest_cactus | 2986.09 | v1 |
-| 3 | team_honest_turtle | 3060.35 | v5 |
+| 1 | team_honest_turtle | 2767.09 | v6 |
+| 2 | team_affectionate_bridge | 2857.86 | v3 |
+| 3 | team_honest_cactus | 2986.09 | v1 |
 | 4 | team_amazing_forest | 3111.02 | v9 |
-| 5 | team_tiny_rainbow | 3252.33 | v18 |
+| 5 | team_tiny_rainbow | 3236.42 | v22 |
 | 6 | team_diligent_volcano | 3273.3 | v3 |
 | 7 | team_likable_jelly | 3310.61 | v2 |
 | 8 | team_inventive_emu | 3326.31 | v5 |
 | 9 | team_mindful_donkey | 3352.1 | v5 |
 | 10 | team_gentle_wreath | 3427.16 | v7 |
 | 11 | team_faithful_napkin | 3438.97 | v2 |
-| 12 | **team_organized_volcano** | 3517.28 | v4 |
+| 12 | **team_organized_volcano** | 3502.38 | v5 |
 | 13 | team_genuine_emu | 4042.14 | v4 |
 | 14 | team_strong_fossil | 4067.41 | v1 |
 | 15 | team_zippy_river | 5087.38 | v3 |
