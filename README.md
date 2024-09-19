@@ -14,7 +14,7 @@ Available [here](https://datacomp.opensky-network.org/api/rankings)
 | ---- | --------- | ---- | ------------ |
 | 1 | team_honest_turtle | 2767.09 | v6 |
 | 2 | team_affectionate_bridge | 2857.86 | v3 |
-| 3 | team_tiny_rainbow | 2964.64 | v29 |
+| 3 | team_tiny_rainbow | 2923.84 | v32 |
 | 4 | team_honest_cactus | 2986.09 | v1 |
 | 5 | team_amazing_forest | 3111.02 | v9 |
 | 6 | team_diligent_volcano | 3236.16 | v4 |
@@ -26,14 +26,15 @@ Available [here](https://datacomp.opensky-network.org/api/rankings)
 | 12 | **team_organized_volcano** | 3502.38 | v5 |
 | 13 | team_genuine_emu | 4042.14 | v4 |
 | 14 | team_strong_fossil | 4067.41 | v1 |
-| 15 | team_zippy_river | 5087.38 | v3 |
+| 15 | team_zippy_river | 4610.5 | v4 |
 | 16 | team_youthful_xerox | 5191.74 | v2 |
 | 17 | team_exuberant_scooter | 5438.55 | v0 |
 | 18 | team_gentle_dragon | 5990.08 | v1 |
 | 19 | team_sincere_quicksand | 10740.28 | v0 |
-| 20 | team_energetic_quiver | 16265.46 | v3 |
-| 21 | team_unbelievable_donkey | 19826.41 | v2 |
-| 22 | team_affectionate_whistle | 29015.24 | v0 |
+| 20 | team_quick_candle | 10944.94 | v1 |
+| 21 | team_energetic_quiver | 16265.46 | v3 |
+| 22 | team_unbelievable_donkey | 19826.41 | v2 |
+| 23 | team_affectionate_whistle | 29015.24 | v0 |
 <!--result-end-->
 
 ## KPIs 
