@@ -25,17 +25,18 @@ Available [here](https://datacomp.opensky-network.org/api/rankings)
 | 11 | team_gentle_wreath | 3427.16 | v7 |
 | 12 | team_faithful_napkin | 3438.97 | v2 |
 | 13 | **team_organized_volcano** | 3502.38 | v5 |
-| 14 | team_genuine_emu | 4042.14 | v4 |
-| 15 | team_strong_fossil | 4067.41 | v1 |
-| 16 | team_zippy_river | 4610.5 | v4 |
-| 17 | team_youthful_xerox | 5191.74 | v2 |
+| 14 | team_youthful_xerox | 3506.56 | v4 |
+| 15 | team_genuine_emu | 4042.14 | v4 |
+| 16 | team_strong_fossil | 4067.41 | v1 |
+| 17 | team_zippy_river | 4610.5 | v4 |
 | 18 | team_exuberant_scooter | 5438.55 | v0 |
 | 19 | team_gentle_dragon | 5990.08 | v1 |
-| 20 | team_sincere_quicksand | 10740.28 | v0 |
-| 21 | team_quick_candle | 10944.94 | v1 |
-| 22 | team_energetic_quiver | 16265.46 | v3 |
-| 23 | team_unbelievable_donkey | 19826.41 | v2 |
-| 24 | team_affectionate_whistle | 29015.24 | v0 |
+| 20 | team_zesty_ostrich | 6043.18 | v0 |
+| 21 | team_sincere_quicksand | 10740.28 | v0 |
+| 22 | team_quick_candle | 10944.94 | v1 |
+| 23 | team_energetic_quiver | 16265.46 | v3 |
+| 24 | team_unbelievable_donkey | 19826.41 | v2 |
+| 25 | team_affectionate_whistle | 29015.24 | v0 |
 <!--result-end-->
 
 ## KPIs 
