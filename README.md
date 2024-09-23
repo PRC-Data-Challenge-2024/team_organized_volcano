@@ -12,9 +12,9 @@ Available [here](https://datacomp.opensky-network.org/api/rankings)
 <!--result-start-->
 | Rank | Team Name | RMSE | File Version |
 | ---- | --------- | ---- | ------------ |
-| 1 | team_honest_turtle | 2650.89 | v8 |
-| 2 | team_affectionate_bridge | 2857.86 | v3 |
-| 3 | team_tiny_rainbow | 2923.84 | v32 |
+| 1 | team_honest_turtle | 2593.75 | v9 |
+| 2 | team_tiny_rainbow | 2854.15 | v44 |
+| 3 | team_affectionate_bridge | 2857.86 | v3 |
 | 4 | team_diligent_volcano | 2929.79 | v5 |
 | 5 | team_honest_cactus | 2986.09 | v1 |
 | 6 | team_amazing_forest | 3111.02 | v9 |
@@ -27,13 +27,13 @@ Available [here](https://datacomp.opensky-network.org/api/rankings)
 | 13 | team_faithful_napkin | 3438.97 | v2 |
 | 14 | **team_organized_volcano** | 3502.38 | v5 |
 | 15 | team_youthful_xerox | 3506.56 | v4 |
-| 16 | team_genuine_emu | 4042.14 | v4 |
-| 17 | team_strong_fossil | 4067.41 | v1 |
-| 18 | team_zippy_river | 4610.5 | v4 |
-| 19 | team_exuberant_scooter | 5438.55 | v0 |
-| 20 | team_gentle_dragon | 5990.08 | v1 |
-| 21 | team_zesty_ostrich | 6043.18 | v0 |
-| 22 | team_quick_candle | 6466.3 | v6 |
+| 16 | team_quick_candle | 3887.9 | v9 |
+| 17 | team_genuine_emu | 4042.14 | v4 |
+| 18 | team_strong_fossil | 4067.41 | v1 |
+| 19 | team_zippy_river | 4610.5 | v4 |
+| 20 | team_exuberant_scooter | 5438.55 | v0 |
+| 21 | team_gentle_dragon | 5990.08 | v1 |
+| 22 | team_zesty_ostrich | 6043.18 | v0 |
 | 23 | team_sincere_quicksand | 10740.28 | v0 |
 | 24 | team_energetic_quiver | 16265.46 | v3 |
 | 25 | team_unbelievable_donkey | 19826.41 | v2 |
