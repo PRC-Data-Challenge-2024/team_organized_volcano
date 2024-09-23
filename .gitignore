@@ -171,3 +171,27 @@ data/submission_set.csv
 data/submission.csv
 
 hgbr_model.joblib
+
+# Dennis Müll
+.vscode/
+2022-01-01.parquet
+FAA-Aircraft-Char-DB-AC-150-5300-13B-App-2023-09-07.csv
+FAA-Aircraft-Char-DB-AC-150-5300-13B-App-2023-09-07.xlsx
+FAA_mtow.csv
+FAA_weights.csv
+FAA_weights.xlsx
+acft_types.ipynb
+challenge_set.csv
+icao_code-mtow.csv
+prc_dc24_approach_speed.ipynb
+prc_dc24_data-explanation.pdf
+prc_dc24_data-explanation.pptx
+prc_dc24_intro-slides.pdf
+prc_dc24_intro-slides.pptx
+submission_set.csv
+type_designators.csv
+type_mtow_mlw.csv
+wikipedia_list_of_airliners_by_mtow.csv
+~$intro.pptx
+
+
