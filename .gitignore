@@ -77,6 +77,7 @@ target/
 
 # Jupyter Notebook
 .ipynb_checkpoints
+submission_test.ipynb
 
 # IPython
 profile_default/
@@ -169,6 +170,8 @@ github_token.txt
 data/challenge_set.csv
 data/submission_set.csv
 data/submission.csv
+data/trajectories
+data/mapping.pkl
 
 hgbr_model.joblib
 
@@ -194,4 +197,7 @@ type_mtow_mlw.csv
 wikipedia_list_of_airliners_by_mtow.csv
 ~$intro.pptx
 
+# Sabrinas Müll
 
+data/2022-01-01.parquet
+data/2022-01-02.parquet
