@@ -118,3 +118,7 @@ This table lists all the features in the flightlist and indicates whether each f
 |Average climb rate, 1st flight phase   | ✅      |
 |Average climb rate, 3rd flight phase    | ✅     |
 |Average altitude, 2nd flight phase    | ✅     |
+
+
+## Expected trajectories in final submission
+We have 474972 and missed 52191 flights
