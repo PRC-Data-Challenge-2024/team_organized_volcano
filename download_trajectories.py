@@ -24,13 +24,14 @@ overlapper, sizes, current_size = 0, [], 0
 this = False
 for obj in s3.s3client.list_objects("competition-data", recursive=True): # iterates over all objects in "competition-data"
     print(obj.object_name)
-    if obj.object_name.startswith("2022-12-08"):
+    if obj.object_name.startswith("2022-03-01"):
         this = True
-    if not this:
-        continue
+    if this:
+        exit()
     if obj.object_name.endswith("parquet"): # as "competition-data" contains .parquet and .csv files, only the latter are downloaded
         # Download new file
         s3.download_object(obj, filename=Path("data/trajectories/" + obj.object_name)) # downloads object in "competition-data"
+        """
         df = dd.read_parquet("data/trajectories/" + obj.object_name, columns=["flight_id"])
         try:
             id_set = set(df["flight_id"])
@@ -51,3 +52,4 @@ for obj in s3.s3client.list_objects("competition-data", recursive=True): # itera
 
         # Store the current file as old file
         old_ids, old_name = id_set, obj.object_name
+        """
