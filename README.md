@@ -12,32 +12,34 @@ Available [here](https://datacomp.opensky-network.org/api/rankings)
 <!--result-start-->
 | Rank | Team Name | RMSE | File Version |
 | ---- | --------- | ---- | ------------ |
-| 1 | team_honest_turtle | 2593.75 | v9 |
+| 1 | team_honest_turtle | 2593.61 | v10 |
 | 2 | team_tiny_rainbow | 2854.15 | v44 |
 | 3 | team_affectionate_bridge | 2857.86 | v3 |
 | 4 | team_diligent_volcano | 2929.79 | v5 |
 | 5 | team_honest_cactus | 2986.09 | v1 |
 | 6 | team_amazing_forest | 3111.02 | v9 |
 | 7 | team_faithful_engine | 3152.34 | v0 |
-| 8 | team_likable_jelly | 3310.61 | v2 |
-| 9 | team_inventive_emu | 3326.31 | v5 |
-| 10 | team_mindful_donkey | 3352.1 | v5 |
-| 11 | team_mellow_barn | 3387.23 | v2 |
-| 12 | team_gentle_wreath | 3427.16 | v7 |
-| 13 | team_faithful_napkin | 3438.97 | v2 |
-| 14 | **team_organized_volcano** | 3502.38 | v5 |
-| 15 | team_youthful_xerox | 3506.56 | v4 |
-| 16 | team_quick_candle | 3887.9 | v9 |
-| 17 | team_genuine_emu | 4042.14 | v4 |
-| 18 | team_strong_fossil | 4067.41 | v1 |
-| 19 | team_zippy_river | 4610.5 | v4 |
-| 20 | team_exuberant_scooter | 5438.55 | v0 |
-| 21 | team_gentle_dragon | 5990.08 | v1 |
-| 22 | team_zesty_ostrich | 6043.18 | v0 |
-| 23 | team_sincere_quicksand | 10740.28 | v0 |
-| 24 | team_energetic_quiver | 16265.46 | v3 |
-| 25 | team_unbelievable_donkey | 19826.41 | v2 |
-| 26 | team_affectionate_whistle | 29015.24 | v0 |
+| 8 | team_youthful_xerox | 3276.25 | v6 |
+| 9 | team_likable_jelly | 3310.61 | v2 |
+| 10 | team_inventive_emu | 3326.31 | v5 |
+| 11 | team_mindful_donkey | 3352.1 | v5 |
+| 12 | team_brave_pillow | 3353.91 | v2 |
+| 13 | team_mellow_barn | 3387.23 | v2 |
+| 14 | team_gentle_wreath | 3427.16 | v7 |
+| 15 | team_faithful_napkin | 3438.97 | v2 |
+| 16 | **team_organized_volcano** | 3502.38 | v5 |
+| 17 | team_quick_candle | 3887.9 | v9 |
+| 18 | team_genuine_emu | 4042.14 | v4 |
+| 19 | team_strong_fossil | 4067.41 | v1 |
+| 20 | team_zippy_river | 4610.5 | v4 |
+| 21 | team_respectful_kangaroo | 5043.08 | v1 |
+| 22 | team_exuberant_scooter | 5438.55 | v0 |
+| 23 | team_gentle_dragon | 5990.08 | v1 |
+| 24 | team_zesty_ostrich | 6043.18 | v0 |
+| 25 | team_sincere_quicksand | 10740.28 | v0 |
+| 26 | team_energetic_quiver | 16265.46 | v3 |
+| 27 | team_unbelievable_donkey | 19826.41 | v2 |
+| 28 | team_affectionate_whistle | 29015.24 | v0 |
 <!--result-end-->
 
 ## KPIs 
@@ -118,3 +120,7 @@ This table lists all the features in the flightlist and indicates whether each f
 |Average climb rate, 1st flight phase   | ✅      |
 |Average climb rate, 3rd flight phase    | ✅     |
 |Average altitude, 2nd flight phase    | ✅     |
+
+
+## Expected trajectories in final submission
+We have 474972 and missed 52191 flights
