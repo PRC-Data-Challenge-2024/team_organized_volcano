@@ -3,11 +3,23 @@ import matplotlib.pyplot as plt
 from collections import Counter
 import os
 from tqdm import tqdm
+from pathlib import Path
+from pyopensky.s3 import S3Client
+
+import pickle
 
 # Truncate trajectorie by cutting off everything before actual_offblock_time and after arrival_time
 path_to_challenge = "data/challenge_set.csv"
 path_to_submission = "data/submission_set.csv"
 path_to_folder = "data/trajectories/"
+path_to_truncated = "truncated_trajectories.pkl"
+
+s3 = S3Client()
+file_name = Path("data/challenge_set.csv")
+if not file_name.exists():
+    for obj in s3.s3client.list_objects("competition-data", recursive=True): # iterates over all objects in "competition-data"
+        if not obj.object_name.endswith("parquet"): # as "competition-data" contains .parquet and .csv files, only the latter are downloaded
+            s3.download_object(obj, filename=Path("data/" + obj.object_name)) # downloads object in "competition-data"
 
 file_names = [i for _, _, i in os.walk(path_to_folder)]
 file_paths = [path_to_folder + k for k in file_names[0]]
@@ -60,7 +72,13 @@ for this_file in tqdm(file_paths):
         else:
             data_quality[id] = kpi
 
+
+with open(path_to_truncated, "wb") as fh:
+    pickle.dump([contains_train, contains_submission, contains_rest], fh)
+
+
 print(data_quality)
 print(f"We have {real} and missed {later} flights")
-plt.hist(data_quality.values())
+plt.hist(data_quality.values(), bins=20)
 plt.show()
+plt.savefig("trajectory_kpi.png")
