@@ -123,6 +123,7 @@ This table lists all the features in the flightlist and indicates whether each f
 
 
 ## Expected trajectories in final submission
-We have 474972 and missed 52191 flights
-We have 464592 and missed 69525 flights
 
+Old: We have 474972 and missed 52191 flights
+
+New: We have 464592 and missed 69525 flights
