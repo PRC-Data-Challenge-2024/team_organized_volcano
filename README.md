@@ -31,19 +31,21 @@ Available [here](https://datacomp.opensky-network.org/api/rankings)
 | 17 | **team_organized_volcano** | 3502.38 | v5 |
 | 18 | team_quick_candle | 3875.77 | v10 |
 | 19 | team_amiable_garden | 3944.4 | v3 |
-| 20 | team_genuine_emu | 4042.14 | v4 |
-| 21 | team_strong_fossil | 4067.41 | v1 |
-| 22 | team_outspoken_engine | 4395.36 | v0 |
-| 23 | team_zippy_river | 4610.5 | v4 |
-| 24 | team_respectful_kangaroo | 5043.08 | v1 |
-| 25 | team_exuberant_scooter | 5438.55 | v0 |
-| 26 | team_gentle_dragon | 5990.08 | v1 |
-| 27 | team_zesty_ostrich | 6043.18 | v0 |
-| 28 | team_jolly_koala | 8107.64 | v1 |
-| 29 | team_sincere_quicksand | 10740.28 | v0 |
-| 30 | team_energetic_quiver | 16265.46 | v3 |
-| 31 | team_unbelievable_donkey | 19825.11 | v4 |
-| 32 | team_affectionate_whistle | 33779.26 | v0 |
+| 20 | team_loyal_hippo | 4010.5 | v2 |
+| 21 | team_genuine_emu | 4042.14 | v4 |
+| 22 | team_strong_fossil | 4067.41 | v1 |
+| 23 | team_bold_emu | 4180.15 | v1 |
+| 24 | team_outspoken_engine | 4395.36 | v0 |
+| 25 | team_zippy_river | 4610.5 | v4 |
+| 26 | team_respectful_kangaroo | 5043.08 | v1 |
+| 27 | team_exuberant_scooter | 5438.55 | v0 |
+| 28 | team_gentle_dragon | 5990.08 | v1 |
+| 29 | team_zesty_ostrich | 6043.18 | v0 |
+| 30 | team_jolly_koala | 8107.64 | v1 |
+| 31 | team_sincere_quicksand | 10740.28 | v0 |
+| 32 | team_energetic_quiver | 16265.46 | v3 |
+| 33 | team_unbelievable_donkey | 19825.11 | v4 |
+| 34 | team_affectionate_whistle | 33779.26 | v0 |
 <!--result-end-->
 
 ## KPIs 
