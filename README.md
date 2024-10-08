@@ -12,21 +12,21 @@ Available [here](https://datacomp.opensky-network.org/api/rankings)
 <!--result-start-->
 | Rank | Team Name | RMSE | File Version |
 | ---- | --------- | ---- | ------------ |
-| 1 | team_likable_jelly | 2131.68 | v3 |
-| 2 | team_motivated_quicksand | 2575.71 | v5 |
-| 3 | team_honest_turtle | 2593.61 | v10 |
-| 4 | team_brave_pillow | 2677.21 | v7 |
-| 5 | team_youthful_xerox | 2683.76 | v12 |
+| 1 | team_likable_jelly | 1934.52 | v4 |
+| 2 | team_brave_pillow | 2554.42 | v9 |
+| 3 | team_motivated_quicksand | 2575.71 | v5 |
+| 4 | team_honest_turtle | 2593.61 | v10 |
+| 5 | team_youthful_xerox | 2608.35 | v13 |
 | 6 | team_mindful_donkey | 2768.36 | v8 |
 | 7 | team_tiny_rainbow | 2846.01 | v45 |
 | 8 | team_affectionate_bridge | 2857.86 | v3 |
 | 9 | team_diligent_volcano | 2879.83 | v10 |
-| 10 | team_honest_cactus | 2986.09 | v1 |
-| 11 | team_amazing_forest | 3104 | v13 |
-| 12 | team_faithful_engine | 3152.34 | v0 |
-| 13 | team_inventive_emu | 3326.31 | v5 |
-| 14 | team_mellow_barn | 3387.23 | v2 |
-| 15 | team_gentle_wreath | 3427.16 | v10 |
+| 10 | team_gentle_wreath | 2970.15 | v13 |
+| 11 | team_honest_cactus | 2986.09 | v1 |
+| 12 | team_amazing_forest | 3104 | v13 |
+| 13 | team_faithful_engine | 3152.34 | v0 |
+| 14 | team_inventive_emu | 3326.31 | v5 |
+| 15 | team_mellow_barn | 3387.23 | v2 |
 | 16 | team_faithful_napkin | 3438.97 | v2 |
 | 17 | **team_organized_volcano** | 3502.38 | v5 |
 | 18 | team_quick_candle | 3875.77 | v10 |
@@ -45,7 +45,8 @@ Available [here](https://datacomp.opensky-network.org/api/rankings)
 | 31 | team_sincere_quicksand | 10740.28 | v0 |
 | 32 | team_energetic_quiver | 16265.46 | v3 |
 | 33 | team_unbelievable_donkey | 19825.11 | v4 |
-| 34 | team_affectionate_whistle | 33779.26 | v0 |
+| 34 | team_knowledgeable_jungle | 28650.96 | v2 |
+| 35 | team_affectionate_whistle | 33779.26 | v0 |
 <!--result-end-->
 
 ## KPIs 
