@@ -3,7 +3,7 @@
 Contribution of Malte Cordts, Sabrina Kerz, and Dennis Schorn to the [PRC Data Challenge 2024](https://ansperformance.eu/study/data-challenge/).
 
 ## Next Meeting
-Monday, September 23 18:00 lcl (16:00 UTC)
+Monday, October 10 19:00 lcl (17:00 UTC)
 
 ## Current rankings
 
