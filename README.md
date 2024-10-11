@@ -14,10 +14,10 @@ Available [here](https://datacomp.opensky-network.org/api/rankings)
 | ---- | --------- | ---- | ------------ |
 | 1 | team_likable_jelly | 1934.52 | v4 |
 | 2 | team_tiny_rainbow | 2444.99 | v64 |
-| 3 | team_brave_pillow | 2533.29 | v13 |
-| 4 | team_motivated_quicksand | 2575.71 | v5 |
-| 5 | team_honest_turtle | 2593.61 | v10 |
-| 6 | team_youthful_xerox | 2608.35 | v13 |
+| 3 | team_motivated_quicksand | 2492.1 | v6 |
+| 4 | team_brave_pillow | 2533.29 | v13 |
+| 5 | team_youthful_xerox | 2541.23 | v21 |
+| 6 | team_honest_turtle | 2593.61 | v10 |
 | 7 | team_mindful_donkey | 2768.36 | v8 |
 | 8 | team_amazing_forest | 2851.13 | v15 |
 | 9 | team_affectionate_bridge | 2857.86 | v3 |
