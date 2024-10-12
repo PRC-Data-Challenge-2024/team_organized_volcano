@@ -12,9 +12,9 @@ Available [here](https://datacomp.opensky-network.org/api/rankings)
 <!--result-start-->
 | Rank | Team Name | RMSE | File Version |
 | ---- | --------- | ---- | ------------ |
-| 1 | team_likable_jelly | 1934.52 | v4 |
-| 2 | team_tiny_rainbow | 2444.99 | v64 |
-| 3 | team_motivated_quicksand | 2492.1 | v6 |
+| 1 | team_likable_jelly | 1748.59 | v6 |
+| 2 | team_motivated_quicksand | 2391.47 | v7 |
+| 3 | team_tiny_rainbow | 2444.99 | v64 |
 | 4 | team_brave_pillow | 2533.29 | v13 |
 | 5 | team_youthful_xerox | 2541.23 | v21 |
 | 6 | team_honest_turtle | 2593.61 | v10 |
@@ -35,19 +35,21 @@ Available [here](https://datacomp.opensky-network.org/api/rankings)
 | 21 | team_genuine_emu | 4042.14 | v4 |
 | 22 | team_strong_fossil | 4067.41 | v1 |
 | 23 | team_bold_emu | 4180.15 | v1 |
-| 24 | team_outspoken_engine | 4395.36 | v0 |
-| 25 | team_zippy_river | 4610.5 | v4 |
-| 26 | team_refreshing_unicorn | 4680.25 | v0 |
-| 27 | team_respectful_kangaroo | 5043.08 | v1 |
-| 28 | team_exuberant_scooter | 5438.55 | v0 |
-| 29 | team_gentle_dragon | 5990.08 | v1 |
-| 30 | team_zesty_ostrich | 6043.18 | v0 |
-| 31 | team_jolly_koala | 8107.64 | v1 |
-| 32 | team_sincere_quicksand | 10740.28 | v0 |
-| 33 | team_energetic_quiver | 16265.46 | v3 |
-| 34 | team_unbelievable_donkey | 19825.11 | v4 |
-| 35 | team_knowledgeable_jungle | 28650.96 | v2 |
-| 36 | team_affectionate_whistle | 33779.26 | v0 |
+| 24 | team_elegant_lemon | 4201.64 | v5 |
+| 25 | team_zippy_river | 4228.78 | v6 |
+| 26 | team_outspoken_engine | 4395.36 | v0 |
+| 27 | team_refreshing_unicorn | 4680.25 | v0 |
+| 28 | team_respectful_kangaroo | 5043.08 | v1 |
+| 29 | team_exuberant_scooter | 5438.55 | v0 |
+| 30 | team_gentle_dragon | 5990.08 | v1 |
+| 31 | team_zesty_ostrich | 6043.18 | v0 |
+| 32 | team_jolly_koala | 8107.64 | v1 |
+| 33 | team_sincere_quicksand | 10740.28 | v0 |
+| 34 | team_zippy_horse | 12583.67 | v1 |
+| 35 | team_energetic_quiver | 16265.46 | v3 |
+| 36 | team_unbelievable_donkey | 19825.11 | v4 |
+| 37 | team_knowledgeable_jungle | 28650.96 | v2 |
+| 38 | team_affectionate_whistle | 33779.26 | v0 |
 <!--result-end-->
 
 ## KPIs 
