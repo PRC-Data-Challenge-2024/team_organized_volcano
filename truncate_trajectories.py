@@ -5,7 +5,8 @@ import os
 from tqdm import tqdm
 from pathlib import Path
 from pyopensky.s3 import S3Client
-
+from analyse_trajectories import split_flight, calculate_kpi, cut_trajectory
+import numpy as np
 import pickle
 
 # Truncate trajectorie by cutting off everything before actual_offblock_time and after arrival_time
@@ -32,50 +33,68 @@ raw_df_challenge["source"] = "challenge"
 raw_df_submission["source"] = "submission"
 
 raw_flight_list = pd.concat([raw_df_submission, raw_df_challenge])
+
 # We care about flight_id, actual_offblock_time, arrival_time
 flight_list = raw_flight_list[["flight_id", "actual_offblock_time", "arrival_time"]]
 flight_list['actual_offblock_time'] = pd.to_datetime(flight_list['actual_offblock_time']).dt.tz_localize(None)
 flight_list['arrival_time'] = pd.to_datetime(flight_list['arrival_time']).dt.tz_localize(None)
 flight_list['calculated_flight_time'] = (flight_list['arrival_time'] - flight_list['actual_offblock_time']) / pd.Timedelta(seconds=1)
 
+# Adding empty columns for the new calculated values
+flight_list['sum_vertical_rate_ascending'] = None
+flight_list['sum_vertical_rate_descending'] = None
+flight_list['average_altitude_cruising'] = None
+flight_list['total_duration_cruising'] = None
+flight_list['average_groundspeed_cruising'] = None
+flight_list['kpi'] = None
+
+flight_list.set_index('flight_id', inplace=True)
+
 data_quality = {}
 real, later = 0, 0
+
+# Define the threshold for the KPI for data quality
+thresh = 0.8
+
 for this_file in tqdm(file_paths):
     raw_df = pd.read_parquet(this_file)
     flights = raw_df.groupby('flight_id')
 
+    i = 0
+    
     for id, f in flights:
-        f['timestamp'] = pd.to_datetime(f['timestamp']).dt.tz_localize(None)
-        try:
-            actual_offblock_time = flight_list.loc[flight_list["flight_id"] == int(id), "actual_offblock_time"].values[0]
-            arrival_time = flight_list.loc[flight_list["flight_id"] == int(id), "arrival_time"].values[0]
-            flight_time = flight_list.loc[flight_list["flight_id"] == int(id), "calculated_flight_time"].values[0]
-            reduced_f = f[f["timestamp"] < arrival_time]
-            reduced_f = reduced_f[reduced_f["timestamp"] > actual_offblock_time]
-            points_removed = len(f) - len(reduced_f)
-            length_data = len(reduced_f["timestamp"].round("S").unique())
-            real += 1
-        except IndexError:
-            later += 1
-            continue
+        f.sort_values('timestamp', ignore_index=True, inplace=True)
+        kpi = calculate_kpi(flight_list, id, f)
 
-        kpi = length_data / flight_time
 
-        if kpi > 1:
-            seconds = Counter(reduced_f["timestamp"].round("S"))
-            print(f"Error in {id}")
+        if kpi and (kpi > thresh):
+            flight_list.loc[id, 'kpi'] = kpi
+            filtered_f = cut_trajectory(f)
+            bkps, signal = split_flight(filtered_f)
 
-        # Take care of flights spanning more than a day - if data is already present in the dict then add the kpi on top
+            # Create dfs for the single phases
+            ascending_phase = filtered_f.loc[0:bkps[0]]
+            cruising_phase = filtered_f.loc[bkps[0]:bkps[1]]
+            descending_phase = filtered_f.loc[bkps[1]:]
+            last_cr_idx = int(cruising_phase.index[-1])
+            first_cr_idx = int(cruising_phase.index[0])
 
-        if data_quality.get(id, None):
-            data_quality[id] += kpi
-        else:
-            data_quality[id] = kpi
+            # Calculate values to be used in the HGBR 
+            flight_list.loc[id, 'sum_vertical_rate_ascending'] = sum(ascending_phase['vertical_rate'].dropna().values)
+            flight_list.loc[id, 'sum_vertical_rate_descending'] = sum(descending_phase['vertical_rate'].dropna().values)
+            flight_list.loc[id, 'average_altitude_cruising'] = np.mean(cruising_phase['altitude'].dropna().values)
+            flight_list.loc[id, 'total_duration_cruising'] = (cruising_phase.loc[last_cr_idx, 'timestamp'] - cruising_phase.loc[first_cr_idx, 'timestamp']) / pd.Timedelta(minutes = 1)
+            flight_list.loc[id, 'average_groundspeed_cruising'] = np.mean(cruising_phase['groundspeed'].dropna().values)
+
+            i +=1
+
 
 
 with open(path_to_truncated, "wb") as fh:
     pickle.dump([contains_train, contains_submission, contains_rest], fh)
 
+# Save DataFrame as CSV
+flight_list.to_csv('trajectory_features.csv', index=True)
 
 print(data_quality)
 print(f"We have {real} and missed {later} flights")
