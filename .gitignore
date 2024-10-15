@@ -167,6 +167,7 @@ cython_debug/
 mc.exe
 github_token.txt
 
+trajectory_features.csv
 data/challenge_set.csv
 data/submission_set.csv
 data/submission.csv
