@@ -18,8 +18,8 @@ Available [here](https://datacomp.opensky-network.org/api/rankings)
 | 4 | team_tiny_rainbow | 2396.82 | v72 |
 | 5 | team_youthful_xerox | 2538.15 | v23 |
 | 6 | team_honest_turtle | 2593.61 | v10 |
-| 7 | team_mindful_donkey | 2768.36 | v8 |
-| 8 | team_amazing_forest | 2851.13 | v15 |
+| 7 | team_amazing_forest | 2747.87 | v16 |
+| 8 | team_mindful_donkey | 2768.36 | v8 |
 | 9 | team_affectionate_bridge | 2857.86 | v3 |
 | 10 | team_diligent_volcano | 2879.83 | v10 |
 | 11 | team_patient_net | 2928.35 | v1 |
@@ -31,7 +31,7 @@ Available [here](https://datacomp.opensky-network.org/api/rankings)
 | 17 | team_mellow_barn | 3387.23 | v2 |
 | 18 | team_faithful_napkin | 3438.97 | v2 |
 | 19 | **team_organized_volcano** | 3502.38 | v5 |
-| 20 | team_bubbly_island | 3714.69 | v0 |
+| 20 | team_bubbly_island | 3649.9 | v1 |
 | 21 | team_quick_candle | 3875.77 | v10 |
 | 22 | team_loyal_hippo | 3904.92 | v3 |
 | 23 | team_amiable_garden | 3944.4 | v3 |
@@ -44,15 +44,16 @@ Available [here](https://datacomp.opensky-network.org/api/rankings)
 | 30 | team_zesty_ostrich | 4409.37 | v1 |
 | 31 | team_refreshing_unicorn | 4680.25 | v0 |
 | 32 | team_respectful_kangaroo | 5043.08 | v1 |
-| 33 | team_exuberant_scooter | 5438.55 | v0 |
-| 34 | team_gentle_dragon | 5990.08 | v1 |
-| 35 | team_jolly_koala | 8107.64 | v1 |
-| 36 | team_sincere_quicksand | 10740.28 | v0 |
-| 37 | team_zippy_horse | 12583.67 | v1 |
-| 38 | team_energetic_quiver | 16265.46 | v3 |
-| 39 | team_knowledgeable_jungle | 18307.51 | v3 |
+| 33 | team_knowledgeable_jungle | 5429.2 | v5 |
+| 34 | team_exuberant_scooter | 5438.55 | v0 |
+| 35 | team_gentle_dragon | 5990.08 | v1 |
+| 36 | team_jolly_koala | 8107.64 | v1 |
+| 37 | team_sincere_quicksand | 10740.28 | v0 |
+| 38 | team_zippy_horse | 12583.67 | v1 |
+| 39 | team_energetic_quiver | 16265.46 | v3 |
 | 40 | team_unbelievable_donkey | 19825.11 | v4 |
-| 41 | team_affectionate_whistle | 33779.26 | v0 |
+| 41 | team_versatile_yacht | 20124.18 | v01 |
+| 42 | team_affectionate_whistle | 33779.26 | v0 |
 <!--result-end-->
 
 ## KPIs 
