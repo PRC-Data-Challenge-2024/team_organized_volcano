@@ -10,7 +10,7 @@ import warnings
 feature_cols = ['country_code_adep_en', 'country_code_ades_en', 'aircraft_type_en', 'weekday', 'airline_en',
                     'wtc_en', 'year sin', 'arrival day sin',
                     'flight_duration', 'taxiout_time', 'flown_distance', 'start_hour', 'mtow_group']
-
+"""[0, 1, 2, 3, 4, 5, 11, 12]"""
 # Ignore Deprecations warnings
 warnings.filterwarnings("ignore", category=FutureWarning)
 

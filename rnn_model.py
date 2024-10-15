@@ -1,111 +1,69 @@
 import torch
 import torch.nn as nn
-import torch.optim as optim
-from sklearn.preprocessing import StandardScaler
-from sklearn.model_selection import train_test_split
 
-# Assuming X_tabular is your 12 scalar features
-# X_trajectory is a list of tensors, each representing the 7 time-series features for a flight, where each tensor has a variable sequence length
-# y is the target variable (TOW)
 
-# Split the data into train and test sets
-X_tab_train, X_tab_test, X_traj_train, X_traj_test, y_train, y_test = train_test_split(
-    X_tabular, X_trajectory, y, test_size=0.2, random_state=42
-)
+class SimpleNN(nn.Module):
+    def __init__(self, num_categories, category_embedding_size, continuous_size, hidden_size, sequence_hidden_size):
+        super(SimpleNN, self).__init__()
 
-# Standardize the scalar features
-scaler = StandardScaler()
-X_tab_train = scaler.fit_transform(X_tab_train)
-X_tab_test = scaler.transform(X_tab_test)
+        # Embedding layer for categorical features
+        self.embedding_layer = nn.Embedding(num_categories, category_embedding_size)
 
-# Convert to PyTorch tensors
-X_tab_train_tensor = torch.tensor(X_tab_train, dtype=torch.float32)
-X_tab_test_tensor = torch.tensor(X_tab_test, dtype=torch.float32)
-y_train_tensor = torch.tensor(y_train.values, dtype=torch.float32).view(-1, 1)
-y_test_tensor = torch.tensor(y_test.values, dtype=torch.float32).view(-1, 1)
+        # Linear layer for the continuous features (5 continuous features)
+        self.continuous_layer = nn.Linear(continuous_size, hidden_size)
 
-# Define the neural network architecture
-class TOWNet(nn.Module):
-    def __init__(self, input_dim_tabular, input_dim_trajectory, hidden_dim_lstm, lstm_layers=1):
-        super(TOWNet, self).__init__()
+        # Input layer for the sequence data (6 floats + 1 timestep index)
+        self.sequence_layer = nn.LSTM(input_size=7, hidden_size=sequence_hidden_size, batch_first=True)
 
-        # Feedforward for the scalar features
-        self.fc1 = nn.Linear(input_dim_tabular, 128)
-        self.fc2 = nn.Linear(128, 64)
+        # Combine both inputs (embedding + continuous features + sequence features)
+        self.combined_layer = nn.Linear(category_embedding_size * 8 + hidden_size, hidden_size)
 
-        # LSTM for the time-series trajectory data
-        self.lstm = nn.LSTM(input_dim_trajectory, hidden_dim_lstm, lstm_layers, batch_first=True)
+        # Additional hidden layer
+        self.hidden_layer = nn.Linear(hidden_size, hidden_size)
 
-        # Fully connected layers to combine the outputs from both parts
-        self.fc_combined = nn.Linear(hidden_dim_lstm + 64, 64)
-        self.fc_out = nn.Linear(64, 1)
-        self.relu = nn.ReLU()
+        # Output layer predicting a float
+        self.output_layer = nn.Linear(hidden_size, 1)
 
-    def forward(self, x_tabular, x_trajectory):
-        # Feedforward for scalar features
-        x_tab = self.relu(self.fc1(x_tabular))
-        x_tab = self.relu(self.fc2(x_tab))
+    def forward(self, categorical_input, continuous_input, sequence_input):
+        # Process categorical input (8 categorical features)
+        embedded_cat = [self.embedding_layer(categorical_input[:, i]) for i in range(categorical_input.size(1))]
+        embedded_cat = torch.cat(embedded_cat, dim=1)  # Concatenate the embeddings
 
-        # LSTM for trajectory data
-        lstm_out, (hn, cn) = self.lstm(x_trajectory)
-        lstm_out = hn[-1]  # Use the final hidden state of the LSTM
+        # Process continuous input
+        continuous_out = torch.relu(self.continuous_layer(continuous_input))
 
-        # Combine both outputs
-        x_combined = torch.cat((x_tab, lstm_out), dim=1)
-        x_combined = self.relu(self.fc_combined(x_combined))
+        # Combine categorical and continuous features
+        feature_combined = torch.cat((embedded_cat, continuous_out), dim=1)
 
-        # Output layer
-        output = self.fc_out(x_combined)
+        # Process the sequence input (6 floats + 1 timestep index)
+        sequence_out, _ = self.sequence_layer(sequence_input)
+        sequence_out = sequence_out[:, -1, :]  # Take the last output of the LSTM
+
+        # Combine all inputs
+        combined = torch.cat((feature_combined, sequence_out), dim=1)
+        combined_out = torch.relu(self.combined_layer(combined))
+
+        # Pass through hidden layer
+        hidden_out = torch.relu(self.hidden_layer(combined_out))
+
+        # Output prediction
+        output = self.output_layer(hidden_out)
         return output
 
-# Hyperparameters
-input_dim_tabular = X_tab_train_tensor.shape[1]  # 12 scalar features
-input_dim_trajectory = 7  # 7 time-series trajectory features
-hidden_dim_lstm = 64  # LSTM hidden dimension
 
-# Instantiate the model
-model = TOWNet(input_dim_tabular, input_dim_trajectory, hidden_dim_lstm)
+# Example of initializing the model
+num_categories = 50  # Assuming each categorical feature has 50 possible categories
+category_embedding_size = 8
+continuous_size = 5  # 5 continuous features out of 13 total features
+hidden_size = 64
+sequence_hidden_size = 32
 
-# Loss function and optimizer
-criterion = nn.MSELoss()  # RMSE will be calculated separately from MSE
-optimizer = optim.Adam(model.parameters(), lr=0.001)
+model = SimpleNN(num_categories, category_embedding_size, continuous_size, hidden_size, sequence_hidden_size)
 
-# Training loop
-epochs = 100
-for epoch in range(epochs):
-    model.train()
+# Example forward pass
+categorical_input = torch.randint(0, num_categories, (32, 8))  # batch_size = 32, 8 categorical features
+continuous_input = torch.randn(32, continuous_size)  # batch_size = 32, 5 continuous features
+sequence_input = torch.randn(32, 5, 7)  # batch_size = 32, sequence length = 5, 7 features (6 floats + 1 timestep)
 
-    total_loss = 0
-    for i in range(len(X_tab_train_tensor)):
-        x_tab = X_tab_train_tensor[i].unsqueeze(0)
-        x_traj = torch.tensor(X_traj_train[i], dtype=torch.float32).unsqueeze(0)  # Adding batch dimension
-
-        # Forward pass
-        outputs = model(x_tab, x_traj)
-        loss = criterion(outputs, y_train_tensor[i].unsqueeze(0))
-
-        # Backward pass and optimization
-        optimizer.zero_grad()
-        loss.backward()
-        optimizer.step()
-
-        total_loss += loss.item()
-
-    if (epoch + 1) % 10 == 0:
-        print(f'Epoch [{epoch+1}/{epochs}], Loss: {total_loss/len(X_tab_train_tensor):.4f}')
-
-# Evaluate on test set
-model.eval()
-total_test_loss = 0
-with torch.no_grad():
-    for i in range(len(X_tab_test_tensor)):
-        x_tab = X_tab_test_tensor[i].unsqueeze(0)
-        x_traj = torch.tensor(X_traj_test[i], dtype=torch.float32).unsqueeze(0)
-
-        y_pred = model(x_tab, x_traj)
-        test_loss = criterion(y_pred, y_test_tensor[i].unsqueeze(0))
-        total_test_loss += test_loss.item()
-
-# Calculate RMSE
-rmse = torch.sqrt(torch.tensor(total_test_loss / len(X_tab_test_tensor)))
-print(f'Test RMSE: {rmse.item():.4f}')
+output = model(categorical_input, continuous_input, sequence_input)
+print(output.shape)  # Output will be of shape [32, 1] (batch_size, output_size)
