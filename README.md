@@ -12,11 +12,11 @@ Available [here](https://datacomp.opensky-network.org/api/rankings)
 <!--result-start-->
 | Rank | Team Name | RMSE | File Version |
 | ---- | --------- | ---- | ------------ |
-| 1 | team_likable_jelly | 1748.59 | v6 |
+| 1 | team_likable_jelly | 1745.95 | v7 |
 | 2 | team_brave_pillow | 2261.74 | v34 |
 | 3 | team_motivated_quicksand | 2391.47 | v7 |
 | 4 | team_tiny_rainbow | 2396.82 | v72 |
-| 5 | team_youthful_xerox | 2538.15 | v23 |
+| 5 | team_youthful_xerox | 2420.07 | v28 |
 | 6 | team_honest_turtle | 2593.61 | v10 |
 | 7 | team_amazing_forest | 2747.87 | v16 |
 | 8 | team_mindful_donkey | 2768.36 | v8 |
@@ -39,9 +39,9 @@ Available [here](https://datacomp.opensky-network.org/api/rankings)
 | 25 | team_bold_emu | 4010.81 | v2 |
 | 26 | team_genuine_emu | 4042.14 | v4 |
 | 27 | team_strong_fossil | 4067.41 | v1 |
-| 28 | team_zippy_river | 4228.78 | v6 |
-| 29 | team_outspoken_engine | 4395.36 | v0 |
-| 30 | team_zesty_ostrich | 4409.37 | v1 |
+| 28 | team_zesty_ostrich | 4168.98 | v2 |
+| 29 | team_zippy_river | 4228.78 | v6 |
+| 30 | team_outspoken_engine | 4395.36 | v0 |
 | 31 | team_refreshing_unicorn | 4680.25 | v0 |
 | 32 | team_respectful_kangaroo | 5043.08 | v1 |
 | 33 | team_knowledgeable_jungle | 5429.2 | v5 |
@@ -51,8 +51,8 @@ Available [here](https://datacomp.opensky-network.org/api/rankings)
 | 37 | team_sincere_quicksand | 10740.28 | v0 |
 | 38 | team_zippy_horse | 12583.67 | v1 |
 | 39 | team_energetic_quiver | 16265.46 | v3 |
-| 40 | team_unbelievable_donkey | 19825.11 | v4 |
-| 41 | team_versatile_yacht | 20124.18 | v01 |
+| 40 | team_versatile_yacht | 16937.08 | v03 |
+| 41 | team_unbelievable_donkey | 19825.11 | v4 |
 | 42 | team_affectionate_whistle | 33779.26 | v0 |
 <!--result-end-->
 
