@@ -20,8 +20,19 @@ def data_manipulation(challenge_df,
 
     # Import list of icao codes and mtow
     icao_list = pd.read_csv('icao_code-mtow.csv')
-    df1 = df1.merge(icao_list, on = 'aircraft_type', how = 'left')
-    df2 = df2.merge(icao_list, on = 'aircraft_type', how = 'left')
+    df1 = df1.merge(icao_list, on='aircraft_type', how='left')
+    df2 = df2.merge(icao_list, on='aircraft_type', how='left')
+
+    # Import trajectory feature list
+    traj_list = pd.read_csv("trajectory_features.csv")
+    # flight_id,actual_offblock_time,arrival_time,calculated_flight_time,sum_vertical_rate_ascending,sum_vertical_rate_descending,average_altitude_cruising,total_duration_cruising,average_groundspeed_cruising,kpi
+    traj_cols = ["flight_id", "sum_vertical_rate_ascending", "sum_vertical_rate_descending",
+                 "average_altitude_cruising", "total_duration_cruising", "average_groundspeed_cruising", "kpi"]
+    traj_list = traj_list[traj_cols]
+    traj_list["kpi"].fillna(0, inplace=True)
+
+    df1 = df1.merge(traj_list, on='flight_id', how='left')
+    df2 = df2.merge(traj_list, on='flight_id', how='left')
 
     columns_to_encode = ['aircraft_type', 'wtc', 'airline', 'country_code_adep', 'country_code_ades']
 
@@ -50,7 +61,6 @@ def data_manipulation(challenge_df,
         df['date_unix'] = df['date'].view('int64') // 10 ** 9
         df['arrival_time'] = df['arrival_time'].view('int64') // 10 ** 9
 
-
         # Transform date signals into periodical signals
         day = 24 * 60 * 60
         # week = 7 * day
@@ -65,16 +75,23 @@ def data_manipulation(challenge_df,
 
 def train_tow_hgbr(challenge_df,
                    feature_cols,
-                   model_path='hgbr_model.joblib', test=False):
+                   model_path='hgbr_model.joblib', test=False, with_traj=False):
     """
     Input: Challenge dataframe (flightlist only), path to save the model to
     Output: Trained ML model
     """
 
+    if with_traj:
+        challenge_df = challenge_df[challenge_df["kpi"] > 0]
+        feature_cols.extend(["sum_vertical_rate_ascending", "sum_vertical_rate_descending", "average_altitude_cruising",
+                             "total_duration_cruising", "average_groundspeed_cruising"])
+        model_path = model_path.replace(".", "_with_traj.")
+    else:
+        challenge_df = challenge_df[challenge_df["kpi"] == 0]
+
     # Define target column
     target_col = 'tow'
 
-    # Assuming 'target_variable' is the name of your target variable column
     X = challenge_df[feature_cols]
     y = challenge_df[target_col]
 
@@ -90,7 +107,7 @@ def train_tow_hgbr(challenge_df,
 
     # If this is a test run (Test = True) implement a train test split
     if test == True:
-        #Train test split
+        # Train test split
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
         # Train model on training data
         hgbr.fit(X_train, y_train)
@@ -104,6 +121,7 @@ def train_tow_hgbr(challenge_df,
         test_rmse = np.sqrt(mean_squared_error(y_test, y_test_pred))
         test_r2 = r2_score(y_test, y_test_pred)
 
+        print(f"With trajectory data: {with_traj}")
         print("Train RMSE:", train_rmse)
         print("Train R^2:", train_r2)
         print("Test RMSE:", test_rmse)
@@ -111,7 +129,7 @@ def train_tow_hgbr(challenge_df,
 
         # Save the model to a file
         joblib.dump(hgbr, model_path)
-    
+
     else:
         # Train model on wholw challenge set
         hgbr.fit(X, y)
@@ -119,6 +137,7 @@ def train_tow_hgbr(challenge_df,
         y_pred = hgbr.predict(X)
         rmse = np.sqrt(mean_squared_error(y, y_pred))
         print(f"The RMSE of the trained model is {rmse}")
+        print(f"With trajectory data: {with_traj}")
 
         # Save the model to a file
         joblib.dump(hgbr, model_path)
@@ -134,17 +153,27 @@ def predict_tow_hgbr(submission_df,
     Input: submission dataset, path to the saved model, path to save submission to
     Output: sumbmission with predicted tow
     """
+    base_model = joblib.load(model_path)
+    traj_model_path = model_path.replace(".", "_with_traj.")
+    traj_model = joblib.load(traj_model_path)
 
-    model = joblib.load(model_path)
+    traj_cols = feature_cols + ["sum_vertical_rate_ascending", "sum_vertical_rate_descending", "average_altitude_cruising",
+                             "total_duration_cruising", "average_groundspeed_cruising"]
 
-    # Assuming 'target_variable' is the name of your target variable column
-    X = submission_df[feature_cols]
+    base_data = submission_df[submission_df["kpi"] == 0]
+    traj_data = submission_df[submission_df["kpi"] != 0]
 
-    # Predict the tow
-    y = model.predict(X)
+    X1 = base_data[feature_cols]
+    X2 = traj_data[traj_cols]
 
-    submission_df['tow'] = y
-    result_df = submission_df[["flight_id", "tow"]]
+    y1 = base_model.predict(X1)
+    y2 = traj_model.predict(X2)
+
+    base_data['tow'] = y1
+    traj_data['tow'] = y2
+
+    result_df = pd.concat([base_data, traj_data])
+    result_df = result_df[["flight_id", "tow"]]
 
     # Save the predictions
     result_df.to_csv(submission_path, index=False)

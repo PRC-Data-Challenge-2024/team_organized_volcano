@@ -175,6 +175,7 @@ data/trajectories
 data/mapping.pkl
 
 hgbr_model.joblib
+hgbr_model_with_traj.joblib
 
 # Dennis Müll
 .vscode/
