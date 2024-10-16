@@ -13,10 +13,10 @@ Available [here](https://datacomp.opensky-network.org/api/rankings)
 | Rank | Team Name | RMSE | File Version |
 | ---- | --------- | ---- | ------------ |
 | 1 | team_likable_jelly | 1745.95 | v7 |
-| 2 | team_brave_pillow | 2261.74 | v34 |
+| 2 | team_brave_pillow | 2258.99 | v40 |
 | 3 | team_motivated_quicksand | 2391.47 | v7 |
 | 4 | team_tiny_rainbow | 2396.82 | v72 |
-| 5 | team_youthful_xerox | 2420.07 | v28 |
+| 5 | team_youthful_xerox | 2408.33 | v29 |
 | 6 | team_honest_turtle | 2593.61 | v10 |
 | 7 | team_amazing_forest | 2747.87 | v16 |
 | 8 | team_mindful_donkey | 2768.36 | v8 |
