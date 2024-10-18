@@ -29,4 +29,4 @@ def submit_solution(version_number=-1):
         except subprocess.CalledProcessError as e:
             print(f"Error: {e.stderr}")
             raise Exception("Submission not possible, did you set up minIO and are you on Windows?")
-    return f"Successfully uploaded new submission with version_number {version_number}"
+    return f"Successfully uploaded #new submission with version_number {version_number}"

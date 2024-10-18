@@ -6,6 +6,7 @@ from sklearn.preprocessing import LabelEncoder
 import joblib
 from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.model_selection import train_test_split
+from sklearn.inspection import permutation_importance
 
 
 def data_manipulation(challenge_df,
@@ -75,7 +76,7 @@ def data_manipulation(challenge_df,
 
 def train_tow_hgbr(challenge_df,
                    feature_cols,
-                   model_path='hgbr_model.joblib', test=False, with_traj=False):
+                   model_path='hgbr_model.joblib', test=False, with_traj=False, permute=False):
     """
     Input: Challenge dataframe (flightlist only), path to save the model to
     Output: Trained ML model
@@ -87,7 +88,8 @@ def train_tow_hgbr(challenge_df,
                              "total_duration_cruising", "average_groundspeed_cruising"])
         model_path = model_path.replace(".", "_with_traj.")
     else:
-        challenge_df = challenge_df[challenge_df["kpi"] == 0]
+        # challenge_df = challenge_df[challenge_df["kpi"] == 0]
+        pass
 
     # Define target column
     target_col = 'tow'
@@ -106,11 +108,20 @@ def train_tow_hgbr(challenge_df,
                 learning_rate=0.078)
 
     # If this is a test run (Test = True) implement a train test split
-    if test == True:
+    if test:
         # Train test split
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
         # Train model on training data
         hgbr.fit(X_train, y_train)
+
+        if permute:
+            # Optionally: Check feature importance
+            result = permutation_importance(hgbr, X_test, y_test, n_repeats=10, random_state=42)
+            for i in result.importances_mean.argsort()[::-1]:
+                print(f"{X.columns[i]}:{result.importances_mean[i]:.3f} +/- {result.importances_std[i]:.3f}")
+
+
         # Make predictions
         y_train_pred = hgbr.predict(X_train)
         y_test_pred = hgbr.predict(X_test)

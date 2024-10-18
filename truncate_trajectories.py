@@ -58,6 +58,7 @@ flight_list['kpi'] = None
 
 flight_list.set_index('flight_id', inplace=True)
 
+
 # Function to process a single flight (within a file)
 def process_flight(id, f):
     f.sort_values('timestamp', ignore_index=True, inplace=True)
