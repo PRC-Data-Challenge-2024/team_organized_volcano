@@ -170,6 +170,7 @@ github_token.txt
 trajectory_features.csv
 data/challenge_set.csv
 data/submission_set.csv
+data/final_submission_set.csv
 data/submission.csv
 data/trajectories
 data/mapping.pkl
