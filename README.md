@@ -49,12 +49,14 @@ Available [here](https://datacomp.opensky-network.org/api/rankings)
 | 35 | team_exuberant_scooter | 5438.55 | v0 |
 | 36 | team_gentle_dragon | 5990.08 | v1 |
 | 37 | team_jolly_koala | 8107.64 | v1 |
-| 38 | team_sincere_quicksand | 10740.28 | v0 |
-| 39 | team_zippy_horse | 12583.67 | v1 |
-| 40 | team_energetic_quiver | 16265.46 | v3 |
-| 41 | team_versatile_yacht | 16937.08 | v03 |
+| 38 | team_versatile_yacht | 10077.68 | v08 |
+| 39 | team_sincere_quicksand | 10740.28 | v0 |
+| 40 | team_zippy_horse | 12583.67 | v1 |
+| 41 | team_energetic_quiver | 16265.46 | v3 |
 | 42 | team_unbelievable_donkey | 19825.11 | v4 |
 | 43 | team_affectionate_whistle | 33779.26 | v0 |
+| 44 | team_nice_hippo | 49433.98 | v1 |
+| 45 | team_diligent_igloo | 84363.48 | v1 |
 <!--result-end-->
 
 ## KPIs 
