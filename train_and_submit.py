@@ -26,9 +26,8 @@ if not file_name.exists():
             s3.download_object(obj, filename=Path("data/" + obj.object_name))  # downloads object in "competition-data"
 
 challenge_df = pd.read_csv('data/challenge_set.csv')
-raw_submission_df = pd.read_csv('data/submission_set.csv')
-final_submission_df = pd.read_csv('data/final_submission_set.csv')
-submission_df = pd.concat([raw_submission_df, final_submission_df])
+submission_df = pd.read_csv('data/final_submission_set.csv')
+
 
 # 2. Data manipulation
 prepared_challenge_df, prepared_submission_df = data_manipulation(challenge_df, submission_df)
