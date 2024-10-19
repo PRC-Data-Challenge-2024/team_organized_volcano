@@ -9,7 +9,7 @@ import warnings
 # Set global feature cols for our model
 feature_cols = ['country_code_adep_en', 'country_code_ades_en', 'aircraft_type_en', 'weekday', 'airline_en',
                 'wtc_en', 'year sin', 'arrival day sin',
-                'flight_duration', 'taxiout_time', 'flown_distance', 'start_hour', 'mtow_group']
+                'flight_duration', 'taxiout_time', 'flown_distance', 'start_hour', 'mtow_group', 'adep_cat_en', 'ades_cat_en']
 """[0, 1, 2, 3, 4, 5, 11, 12]"""
 # Ignore Deprecations warnings
 warnings.filterwarnings("ignore", category=FutureWarning)
@@ -33,13 +33,13 @@ submission_df = pd.read_csv('data/final_submission_set.csv')
 prepared_challenge_df, prepared_submission_df = data_manipulation(challenge_df, submission_df)
 
 # 2. Train the model & save it to the default path
-base_model = train_tow_hgbr(prepared_challenge_df, feature_cols=feature_cols, test=False, with_traj=False, permute=False)
-traj_model = train_tow_hgbr(prepared_challenge_df, feature_cols=feature_cols, test=False, with_traj=True, permute=False)
+base_model = train_tow_hgbr(prepared_challenge_df, feature_cols=feature_cols, test=True, with_traj=False, permute=False)
+traj_model = train_tow_hgbr(prepared_challenge_df, feature_cols=feature_cols, test=True, with_traj=True, permute=False)
 # traj_model = train_tow_hgbr(prepared_challenge_df, feature_cols=feature_cols, test=True, with_traj=True, permute=True)
 
 # 3. Predict on the submission data (using default model path)
 result = predict_tow_hgbr(prepared_submission_df, feature_cols=feature_cols)
 
 # 4. Submit the data (default path) with a new, manual version number
-msg = submit_solution(version_number=7)
-print(msg)
+#msg = submit_solution(version_number=7)
+#print(msg)

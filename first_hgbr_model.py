@@ -9,6 +9,58 @@ from sklearn.model_selection import train_test_split
 from sklearn.inspection import permutation_importance
 
 
+def create_city_categories(challenge_df, submission_df):
+
+    '''
+    This function takes the challenge and submission df and creates a dictionary for adep and ades cities. 
+    The cities are categorized to create less than 255 categories, so the column can be processed by the HGBR later on.
+    For each country at least on category exists. All cities with a count less than a threshold in one country are assigned to the same category. 
+
+    Input: challenge and submission dataframe
+    Output: dictionary that maps adep & ades to categories
+    '''
+
+    all_flights = pd.concat([challenge_df, submission_df])
+    all_flights = all_flights[['adep', 'ades', 'country_code_adep', 'country_code_ades']]
+
+    all_flights = pd.melt(all_flights, id_vars=[], value_vars=['adep', 'ades', 'country_code_adep', 'country_code_ades'], var_name='Variable', 
+                        value_name='Value')
+
+    # Create separate DataFrames for countries and cities
+    countries = all_flights[all_flights['Variable'].str.contains('country')]
+    cities = all_flights[all_flights['Variable'].isin(['adep', 'ades'])]
+
+    # Combine into a single DataFrame
+    all_flights = pd.DataFrame({
+        'Country': countries['Value'].values,
+        'City': cities['Value'].values
+    })
+    city_counts_final = all_flights.groupby('Country')['City'].value_counts().reset_index(name='Count')
+
+    # assign index number as category number
+    city_counts_final['Category'] = city_counts_final.index
+
+    # assign zero to marker column
+    city_counts_final['Marker'] = 0
+
+    # if count is smaller than threshold marker is set to 1
+    city_thresh = 440
+    city_counts_final.loc[city_counts_final['Count'] < city_thresh, 'Marker'] = 1
+
+    country_list = city_counts_final['Country'].unique()
+
+
+    for country in country_list:
+        condition1 = city_counts_final['Country'] == country
+        condition2 = city_counts_final['Marker'] == 1
+        first_index = city_counts_final.loc[condition1 & condition2].first_valid_index()
+        city_counts_final.loc[condition1 & condition2, 'Category'] = first_index
+
+    category_mapping = city_counts_final.set_index('City')['Category'].astype(int).to_dict()
+
+    return(category_mapping)
+
+
 def data_manipulation(challenge_df,
                       submission_df):
     """
@@ -24,6 +76,15 @@ def data_manipulation(challenge_df,
     df1 = df1.merge(icao_list, on='aircraft_type', how='left')
     df2 = df2.merge(icao_list, on='aircraft_type', how='left')
 
+    # Create categories for adep and ades
+    city_mapping = create_city_categories(df1, df2)
+
+    # Add new category columns to both dfs
+    df1['adep_cat'] = df1['adep'].map(city_mapping)
+    df1['ades_cat'] = df1['ades'].map(city_mapping)
+    df2['adep_cat'] = df2['adep'].map(city_mapping)
+    df2['ades_cat'] = df1['ades'].map(city_mapping)
+
     # Import trajectory feature list
     traj_list = pd.read_csv("trajectory_features.csv")
     # flight_id,actual_offblock_time,arrival_time,calculated_flight_time,sum_vertical_rate_ascending,sum_vertical_rate_descending,average_altitude_cruising,total_duration_cruising,average_groundspeed_cruising,kpi
@@ -35,7 +96,7 @@ def data_manipulation(challenge_df,
     df1 = df1.merge(traj_list, on='flight_id', how='left')
     df2 = df2.merge(traj_list, on='flight_id', how='left')
 
-    columns_to_encode = ['aircraft_type', 'wtc', 'airline', 'country_code_adep', 'country_code_ades']
+    columns_to_encode = ['aircraft_type', 'wtc', 'airline', 'country_code_adep', 'country_code_ades', 'adep_cat', 'ades_cat']
 
     for col in columns_to_encode:
         # Combine datasets for current column
