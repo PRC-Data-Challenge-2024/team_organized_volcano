@@ -33,13 +33,13 @@ submission_df = pd.read_csv('data/final_submission_set.csv')
 prepared_challenge_df, prepared_submission_df = data_manipulation(challenge_df, submission_df)
 
 # 2. Train the model & save it to the default path
-base_model = train_tow_hgbr(prepared_challenge_df, feature_cols=feature_cols, test=True, with_traj=False, permute=False)
-traj_model = train_tow_hgbr(prepared_challenge_df, feature_cols=feature_cols, test=True, with_traj=True, permute=False)
+base_model = train_tow_hgbr(prepared_challenge_df, feature_cols=feature_cols, test=False, with_traj=False, permute=False)
+traj_model = train_tow_hgbr(prepared_challenge_df, feature_cols=feature_cols, test=False, with_traj=True, permute=False)
 # traj_model = train_tow_hgbr(prepared_challenge_df, feature_cols=feature_cols, test=True, with_traj=True, permute=True)
 
 # 3. Predict on the submission data (using default model path)
 result = predict_tow_hgbr(prepared_submission_df, feature_cols=feature_cols)
 
 # 4. Submit the data (default path) with a new, manual version number
-#msg = submit_solution(version_number=7)
-#print(msg)
+msg = submit_solution(version_number=8)
+print(msg)
