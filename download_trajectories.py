@@ -24,10 +24,10 @@ overlapper, sizes, current_size = 0, [], 0
 this = False
 for obj in s3.s3client.list_objects("competition-data", recursive=True): # iterates over all objects in "competition-data"
     print(obj.object_name)
-    if obj.object_name.startswith("2022-03-01"):
+    if obj.object_name.startswith("2022-12-06"):
         this = True
-    if this:
-        exit()
+    if not this:
+        continue
     if obj.object_name.endswith("parquet"): # as "competition-data" contains .parquet and .csv files, only the latter are downloaded
         # Download new file
         s3.download_object(obj, filename=Path("data/trajectories/" + obj.object_name)) # downloads object in "competition-data"

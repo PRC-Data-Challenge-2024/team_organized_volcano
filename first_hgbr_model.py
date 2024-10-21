@@ -220,31 +220,42 @@ def train_tow_hgbr(challenge_df,
 def predict_tow_hgbr(submission_df,
                      feature_cols,
                      model_path="hgbr_model.joblib",
-                     submission_path="data/submission.csv"):
+                     submission_path="data/submission.csv",
+                     with_traj=False):
     """
     Input: submission dataset, path to the saved model, path to save submission to
     Output: sumbmission with predicted tow
     """
     base_model = joblib.load(model_path)
-    traj_model_path = model_path.replace(".", "_with_traj.")
-    traj_model = joblib.load(traj_model_path)
 
-    traj_cols = feature_cols + ["sum_vertical_rate_ascending", "sum_vertical_rate_descending", "average_altitude_cruising",
-                             "total_duration_cruising", "average_groundspeed_cruising"]
-
-    base_data = submission_df[submission_df["kpi"] == 0]
-    traj_data = submission_df[submission_df["kpi"] != 0]
+    if with_traj:
+        base_data = submission_df[submission_df["kpi"] == 0]
+    else:
+        base_data = submission_df
 
     X1 = base_data[feature_cols]
-    X2 = traj_data[traj_cols]
 
     y1 = base_model.predict(X1)
-    y2 = traj_model.predict(X2)
 
     base_data['tow'] = y1
-    traj_data['tow'] = y2
 
-    result_df = pd.concat([base_data, traj_data])
+    if with_traj:
+        traj_model_path = model_path.replace(".", "_with_traj.")
+        traj_model = joblib.load(traj_model_path)
+
+        traj_cols = feature_cols + ["sum_vertical_rate_ascending", "sum_vertical_rate_descending",
+                                    "average_altitude_cruising",
+                                    "total_duration_cruising", "average_groundspeed_cruising"]
+        traj_data = submission_df[submission_df["kpi"] != 0]
+
+        X2 = traj_data[traj_cols]
+        y2 = traj_model.predict(X2)
+        traj_data['tow'] = y2
+
+        result_df = pd.concat([base_data, traj_data])
+    else:
+        result_df = base_data
+
     result_df = result_df[["flight_id", "tow"]]
 
     # Save the predictions

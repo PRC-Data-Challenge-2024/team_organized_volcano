@@ -111,3 +111,13 @@ This table lists all the features in the flightlist and indicates whether each f
 Old: We have 474972 and missed 52191 flights
 
 New: We have 464592 and missed 69525 flights
+
+
+### Versions
+
+Versions 0-6 were submitted for the early data, from 7 onwards we worked with the final data.
+All trajectories were downloaded and processed after 8
+
+7. kpi > 0.8 traj_model, rest base_model on rest of data
+8. kpi > 0.8 traj model, rest base_model on all data
+9. all base_model
