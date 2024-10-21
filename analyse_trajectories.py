@@ -99,4 +99,4 @@ def cut_trajectory(df, column='altitude', thresh=5):
         start = last_start + delta_start
         end = last_start + delta_end - 1
 
-    return df.loc[start:end]
+    return df.loc[start:end], start, end

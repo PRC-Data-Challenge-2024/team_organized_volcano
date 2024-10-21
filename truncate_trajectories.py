@@ -31,7 +31,6 @@ if not file_name.exists():
 
 file_names = [i for _, _, i in os.walk(path_to_folder)]
 file_paths = [path_to_folder + k for k in file_names[0]]
-contains_train, contains_submission, contains_rest, = [], [], []
 
 raw_df_challenge = pd.read_csv(path_to_challenge)
 raw_df_submission = pd.read_csv(path_to_submission)
@@ -58,91 +57,21 @@ flight_list['kpi'] = None
 
 flight_list.set_index('flight_id', inplace=True)
 
-
-# Function to process a single flight (within a file)
-def process_flight(id, f):
-    f.sort_values('timestamp', ignore_index=True, inplace=True)
-    kpi = calculate_kpi(flight_list, id, f)
-
-    if kpi and (kpi > thresh):
-        filtered_f = cut_trajectory(f)
-        bkps, signal = split_flight(filtered_f)
-
-        # Create dfs for the single phases
-        ascending_phase = filtered_f.loc[0:bkps[0]]
-        cruising_phase = filtered_f.loc[bkps[0]:bkps[1]]
-        descending_phase = filtered_f.loc[bkps[1]:]
-        last_cr_idx = int(cruising_phase.index[-1])
-        first_cr_idx = int(cruising_phase.index[0])
-
-        # Gather calculated values
-        flight_data = {
-            'flight_id': id,
-            'kpi': kpi,
-            'sum_vertical_rate_ascending': sum(ascending_phase['vertical_rate'].dropna().values),
-            'sum_vertical_rate_descending': sum(descending_phase['vertical_rate'].dropna().values),
-            'average_altitude_cruising': np.mean(cruising_phase['altitude'].dropna().values),
-            'total_duration_cruising': (cruising_phase.loc[last_cr_idx, 'timestamp'] -
-                                        cruising_phase.loc[first_cr_idx, 'timestamp']) / pd.Timedelta(minutes=1),
-            'average_groundspeed_cruising': np.mean(cruising_phase['groundspeed'].dropna().values),
-            'beginn_cruising_phase' : bkps[0],
-            'end_cruising_phase' :bkps[1]
-        }
-        return flight_data
-    return None
-
-
-# Function to process a single file with parallelization at the flight level
-def process_file(raw_df):
-    flights = raw_df.groupby('flight_id')
-    local_updates = []
-
-    # Parallelize the processing of individual flights
-    with ThreadPoolExecutor() as flight_executor:
-        futures = {flight_executor.submit(process_flight, id, f): id for id, f in flights}
-        for future in as_completed(futures):
-            result = future.result()
-            if result:
-                local_updates.append(result)
-
-    return local_updates
-
-
 # Define the threshold for the KPI for data quality
-thresh = 0.8
+# thresh = 0.8
 
-"""flight_results = []
-for this_file in tqdm(file_paths):
-    raw_df = pd.read_parquet(this_file)
-    flight_results.extend(process_file(raw_df))
-
-print("Processed all flights, writing results...")
-
-# Update flight_list with results after processing
-for result in flight_results:
-    flight_list.loc[result['flight_id'], 'kpi'] = result['kpi']
-    flight_list.loc[result['flight_id'], 'sum_vertical_rate_ascending'] = result['sum_vertical_rate_ascending']
-    flight_list.loc[result['flight_id'], 'sum_vertical_rate_descending'] = result['sum_vertical_rate_descending']
-    flight_list.loc[result['flight_id'], 'average_altitude_cruising'] = result['average_altitude_cruising']
-    flight_list.loc[result['flight_id'], 'total_duration_cruising'] = result['total_duration_cruising']
-    flight_list.loc[result['flight_id'], 'average_groundspeed_cruising'] = result['average_groundspeed_cruising']
-"""
-
-
-for this_file in tqdm(file_paths):
+for k, this_file in enumerate(tqdm(file_paths)):
     raw_df = pd.read_parquet(this_file)
     flights = raw_df.groupby('flight_id')
-
-    i = 0
 
     for id, f in flights:
         f.sort_values('timestamp', ignore_index=True, inplace=True)
         kpi = calculate_kpi(flight_list, id, f)
 
-        if kpi and (kpi > thresh):
-            flight_list.loc[id, 'kpi'] = kpi
+        if kpi: #and (kpi > thresh):
             try:
-                filtered_f = cut_trajectory(f)
+                flight_list.loc[id, 'kpi'] = kpi
+                filtered_f, start, end = cut_trajectory(f)
                 bkps, signal = split_flight(filtered_f)
 
                 # Create dfs for the single phases
@@ -153,19 +82,27 @@ for this_file in tqdm(file_paths):
                 first_cr_idx = int(cruising_phase.index[0])
 
                 # Calculate values to be used in the HGBR
-                flight_list.loc[id, 'sum_vertical_rate_ascending'] = sum(ascending_phase['vertical_rate'].dropna().values)
-                flight_list.loc[id, 'sum_vertical_rate_descending'] = sum(descending_phase['vertical_rate'].dropna().values)
+                flight_list.loc[id, 'sum_vertical_rate_ascending'] = sum(
+                    ascending_phase['vertical_rate'].dropna().values)
+                flight_list.loc[id, 'sum_vertical_rate_descending'] = sum(
+                    descending_phase['vertical_rate'].dropna().values)
                 flight_list.loc[id, 'average_altitude_cruising'] = np.mean(cruising_phase['altitude'].dropna().values)
                 flight_list.loc[id, 'total_duration_cruising'] = (cruising_phase.loc[last_cr_idx, 'timestamp'] -
                                                                   cruising_phase.loc[
-                                                                      first_cr_idx, 'timestamp']) / pd.Timedelta(minutes=1)
-                flight_list.loc[id, 'average_groundspeed_cruising'] = np.mean(cruising_phase['groundspeed'].dropna().values)
+                                                                      first_cr_idx, 'timestamp']) / pd.Timedelta(
+                    minutes=1)
+                flight_list.loc[id, 'average_groundspeed_cruising'] = np.mean(
+                    cruising_phase['groundspeed'].dropna().values)
+                flight_list.loc[id, 'beginn_cruising_phase'] = bkps[0]
+                flight_list.loc[id, 'end_cruising_phase'] = bkps[1]
+                flight_list.loc[id, 'start_of_data'] = start
+                flight_list.loc[id, 'end_of_data'] = end
             except:
-                print(f"Error in id {id}")
-            i += 1
+                print(f"Error in id {id}, kpi {kpi}")
+
+    if k % 30 == 0:
+        # Backup save DataFrame as CSV
+        flight_list.to_csv(f'trajectory_features_{k}.csv', index=True)
 
 # Save DataFrame as CSV
 flight_list.to_csv('trajectory_features.csv', index=True)
-
-with open(path_to_truncated, "wb") as fh:
-    pickle.dump([contains_train, contains_submission, contains_rest], fh)

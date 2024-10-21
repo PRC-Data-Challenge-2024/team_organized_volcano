@@ -168,6 +168,7 @@ mc.exe
 github_token.txt
 
 trajectory_features.csv
+trajectory_features*
 data/challenge_set.csv
 data/submission_set.csv
 data/final_submission_set.csv
