@@ -84,7 +84,9 @@ def process_flight(id, f):
             'average_altitude_cruising': np.mean(cruising_phase['altitude'].dropna().values),
             'total_duration_cruising': (cruising_phase.loc[last_cr_idx, 'timestamp'] -
                                         cruising_phase.loc[first_cr_idx, 'timestamp']) / pd.Timedelta(minutes=1),
-            'average_groundspeed_cruising': np.mean(cruising_phase['groundspeed'].dropna().values)
+            'average_groundspeed_cruising': np.mean(cruising_phase['groundspeed'].dropna().values),
+            'beginn_cruising_phase' : bkps[0],
+            'end_cruising_phase' :bkps[1]
         }
         return flight_data
     return None
