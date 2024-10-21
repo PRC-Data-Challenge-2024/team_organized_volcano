@@ -126,3 +126,5 @@ All trajectories were downloaded and processed after 8
 7. kpi > 0.8 traj_model, rest base_model on rest of data
 8. kpi > 0.8 traj model, rest base_model on all data
 9. all base_model
+10. all base_model, sorted by index (makes no sense, don't ask)
+11. kpi > 0.8 traj model, rest base_model on all data, sorted by index
