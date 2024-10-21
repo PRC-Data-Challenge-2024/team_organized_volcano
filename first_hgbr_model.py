@@ -252,7 +252,7 @@ def predict_tow_hgbr(submission_df,
         y2 = traj_model.predict(X2)
         traj_data['tow'] = y2
 
-        result_df = pd.concat([base_data, traj_data])
+        result_df = pd.concat([base_data, traj_data]).sort_index()
     else:
         result_df = base_data
 
