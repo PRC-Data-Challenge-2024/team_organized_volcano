@@ -18,17 +18,20 @@ Available [here](https://datacomp.opensky-network.org/api/rankings)
 | 4 | team_amazing_forest | 2730.61 | v17 |
 | 5 | team_diligent_igloo | 2790.44 | v11 |
 | 6 | team_patient_net | 2850.31 | v4 |
-| 7 | **team_organized_volcano** | 3755.47 | v9 |
-| 8 | team_outspoken_engine | 4026.94 | v6 |
-| 9 | team_respectful_kangaroo | 4052.19 | v5 |
-| 10 | team_brave_pillow | 4122.98 | v46 |
-| 11 | team_exuberant_hippo | 4420.51 | v5 |
-| 12 | team_zesty_ostrich | 4777.1 | v3 |
-| 13 | team_elegant_lemon | 5184.86 | v18 |
-| 14 | team_tiny_rainbow | 6762.58 | v86 |
-| 15 | team_jolly_koala | 8160.4 | v3 |
-| 16 | team_youthful_xerox | 9146.31 | v1 |
-| 17 | team_versatile_yacht | 10207.85 | v10 |
+| 7 | team_exuberant_hippo | 3634.46 | v6 |
+| 8 | **team_organized_volcano** | 3755.47 | v9 |
+| 9 | team_loyal_hippo | 3863.07 | v6 |
+| 10 | team_outspoken_engine | 4026.94 | v6 |
+| 11 | team_respectful_kangaroo | 4052.19 | v5 |
+| 12 | team_brave_pillow | 4122.98 | v46 |
+| 13 | team_zesty_ostrich | 4206.14 | v4 |
+| 14 | team_nice_hippo | 4263.82 | v7 |
+| 15 | team_elegant_lemon | 5184.86 | v18 |
+| 16 | team_tiny_rainbow | 6762.58 | v86 |
+| 17 | team_jolly_koala | 8160.4 | v3 |
+| 18 | team_youthful_xerox | 9146.31 | v1 |
+| 19 | team_versatile_yacht | 10207.85 | v10 |
+| 20 | team_energetic_quiver | 15843.84 | v8 |
 <!--result-end-->
 
 ## KPIs 
