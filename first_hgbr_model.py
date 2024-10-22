@@ -228,35 +228,31 @@ def predict_tow_hgbr(submission_df,
     """
     base_model = joblib.load(model_path)
 
-    if with_traj:
-        base_data = submission_df[submission_df["kpi"] == 0]
-    else:
-        base_data = submission_df
+    base_data = submission_df
 
     X1 = base_data[feature_cols]
 
     y1 = base_model.predict(X1)
 
-    base_data['tow'] = y1
+    base_data.loc[:, 'tow'] = y1
 
     if with_traj:
+        #base_data = submission_df[submission_df["kpi"] == 0]
         traj_model_path = model_path.replace(".", "_with_traj.")
         traj_model = joblib.load(traj_model_path)
 
         traj_cols = feature_cols + ["sum_vertical_rate_ascending", "sum_vertical_rate_descending",
                                     "average_altitude_cruising",
                                     "total_duration_cruising", "average_groundspeed_cruising"]
-        traj_data = submission_df[submission_df["kpi"] != 0]
+        traj_data = base_data[(base_data["kpi"] >= 0.8) & (base_data["tow"] <= 250000)]
 
         X2 = traj_data[traj_cols]
         y2 = traj_model.predict(X2)
-        traj_data['tow'] = y2
+        base_data.loc[traj_data.index, 'tow'] = y2
 
-        result_df = pd.concat([base_data, traj_data]).sort_index()
-    else:
-        result_df = base_data
+        # result_df = pd.concat([base_data, traj_data]).sort_index()
 
-    result_df = result_df[["flight_id", "tow"]]
+    result_df = base_data[["flight_id", "tow"]]
 
     # Save the predictions
     result_df.to_csv(submission_path, index=False)

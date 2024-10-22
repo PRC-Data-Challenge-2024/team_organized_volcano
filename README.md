@@ -128,3 +128,7 @@ All trajectories were downloaded and processed after 8
 9. all base_model
 10. all base_model, sorted by index (makes no sense, don't ask)
 11. kpi > 0.8 traj model, rest base_model on all data, sorted by index
+12. traj model only on tow > 250t and kpi > 0.8, rest base
+
+### Our submissions
+[{"rmse":9959.47,"processed":true,"file_version":"v6","num_lines":158149,"submission_date":"2024-10-18T18:25:31.478Z"},{"rmse":9950.77,"processed":true,"file_version":"v7","num_lines":158149,"submission_date":"2024-10-18T19:07:34.082Z"},{"rmse":10106.12,"processed":true,"file_version":"v8","num_lines":158149,"submission_date":"2024-10-20T15:38:21.214Z"},{"rmse":3755.47,"processed":true,"file_version":"v9","num_lines":158149,"submission_date":"2024-10-21T16:52:39.367Z"},{"rmse":3755.47,"processed":true,"file_version":"v10","num_lines":158149,"submission_date":"2024-10-21T19:31:40.817Z"},{"rmse":10106.12,"processed":true,"file_version":"v11","num_lines":158149,"submission_date":"2024-10-21T19:36:13.183Z"},{"rmse":4341.19,"processed":true,"file_version":"v12","num_lines":158149,"submission_date":"2024-10-22T06:44:12.335Z"}]}
