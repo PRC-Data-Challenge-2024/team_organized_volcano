@@ -143,3 +143,7 @@ All trajectories were downloaded and processed after 8
 | v10          | 3755.47 |
 | v11          | 10106.12|
 | v12          | 4341.19 |
+
+## License
+
+This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](./LICENSE) file for details.
