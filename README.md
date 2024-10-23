@@ -151,6 +151,7 @@ All trajectories were downloaded and processed after 8. New features from trajec
 | v10          | 3755.47 |
 | v11          | 10106.12|
 | v12          | 4341.19 |
+| v13          | 4023.11 |
 
 ## License
 
