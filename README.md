@@ -131,7 +131,7 @@ New: We have 464592 and missed 69525 flights
 ### Versions
 
 Versions 0-6 were submitted for the early data, from 7 onwards we worked with the final data.
-All trajectories were downloaded and processed after 8
+All trajectories were downloaded and processed after 8. New features from trajectories were extracted after 12
 
 7. kpi > 0.8 traj_model, rest base_model on rest of data
 8. kpi > 0.8 traj model, rest base_model on all data
@@ -139,6 +139,7 @@ All trajectories were downloaded and processed after 8
 10. all base_model, sorted by index (makes no sense, don't ask)
 11. kpi > 0.8 traj model, rest base_model on all data, sorted by index
 12. traj model only on tow > 250t and kpi > 0.8, rest base
+13. traj model with new trajectories traj model only on tow > 250t and kpi > 0.8, rest base
 
 ### Our submissions
 | File Version | RMSE    |

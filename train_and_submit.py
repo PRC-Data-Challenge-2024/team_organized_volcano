@@ -41,5 +41,5 @@ traj_model = train_tow_hgbr(prepared_challenge_df, feature_cols=feature_cols, te
 result = predict_tow_hgbr(prepared_submission_df, feature_cols=feature_cols, with_traj=True)
 
 # 4. Submit the data (default path) with a new, manual version number
-msg = submit_solution(version_number=12)
+msg = submit_solution(version_number=13)
 print(msg)
