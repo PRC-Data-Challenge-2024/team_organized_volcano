@@ -14,8 +14,8 @@ Available [here](https://datacomp.opensky-network.org/api/rankings)
 | ---- | --------- | ---- | ------------ |
 | 1 | team_likable_jelly | 1573.65 | v12 |
 | 2 | team_delightful_avocado | 2377.52 | v5 |
-| 3 | team_brave_pillow | 2506.83 | v53 |
-| 4 | team_tiny_rainbow | 2583.89 | v45 |
+| 3 | team_brave_pillow | 2381.07 | v59 |
+| 4 | team_tiny_rainbow | 2525.69 | v97 |
 | 5 | team_honest_turtle | 2586.84 | v16 |
 | 6 | team_mindful_donkey | 2683.05 | v9 |
 | 7 | team_gentle_wreath | 2702.16 | v20 |
@@ -25,20 +25,22 @@ Available [here](https://datacomp.opensky-network.org/api/rankings)
 | 11 | team_modest_scooter | 2880.63 | v4 |
 | 12 | team_faithful_engine | 2965.47 | v1 |
 | 13 | team_exuberant_hippo | 3036.23 | v7 |
-| 14 | team_zesty_ostrich | 3380.77 | v6 |
-| 15 | team_exuberant_scooter | 3506.05 | v2 |
-| 16 | **team_organized_volcano** | 3755.47 | v9 |
-| 17 | team_loyal_hippo | 3863.07 | v6 |
-| 18 | team_outspoken_engine | 4026.94 | v6 |
-| 19 | team_respectful_kangaroo | 4052.19 | v5 |
-| 20 | team_nice_hippo | 4263.82 | v7 |
-| 21 | team_amiable_garden | 4988.93 | v13 |
-| 22 | team_elegant_lemon | 5184.86 | v18 |
-| 23 | team_jolly_koala | 5771.74 | v5 |
-| 24 | team_zippy_river | 6839.35 | v11 |
-| 25 | team_youthful_xerox | 9146.31 | v1 |
-| 26 | team_versatile_yacht | 10207.85 | v10 |
-| 27 | team_energetic_quiver | 14473.11 | v14 |
+| 14 | team_loyal_hippo | 3215.64 | v8 |
+| 15 | team_zesty_ostrich | 3380.77 | v6 |
+| 16 | team_exuberant_scooter | 3506.05 | v2 |
+| 17 | team_energetic_quiver | 3683.31 | v15 |
+| 18 | **team_organized_volcano** | 3755.47 | v9 |
+| 19 | team_outspoken_engine | 4026.94 | v6 |
+| 20 | team_respectful_kangaroo | 4052.19 | v5 |
+| 21 | team_nice_hippo | 4263.82 | v7 |
+| 22 | team_gentle_elephant | 4299.75 | v1 |
+| 23 | team_amiable_garden | 4988.93 | v13 |
+| 24 | team_elegant_lemon | 5184.86 | v18 |
+| 25 | team_jolly_koala | 5771.74 | v5 |
+| 26 | team_refreshing_unicorn | 6533.31 | v1 |
+| 27 | team_zippy_river | 6839.35 | v11 |
+| 28 | team_youthful_xerox | 9146.31 | v1 |
+| 29 | team_versatile_yacht | 10207.85 | v10 |
 <!--result-end-->
 
 ## KPIs 
