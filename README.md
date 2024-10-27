@@ -1,9 +1,7 @@
 # PRC Data Challenge
 
 Contribution of Malte Cordts, Sabrina Kerz, and Dennis Schorn to the [PRC Data Challenge 2024](https://ansperformance.eu/study/data-challenge/).
-
-## Next Meeting
-Monday, October 10 19:00 lcl (17:00 UTC)
+This code falls under GNU GPLv3, see the license tab for the full license.
 
 ## Current rankings
 
@@ -51,11 +49,14 @@ Available [here](https://datacomp.opensky-network.org/api/rankings)
 | 37 | team_dependable_gorilla | 95849.37 | v1 |
 <!--result-end-->
 
-## KPIs 
-### 1. Model (Flight List Based Model, Gradient Boost)
-RMSE Train: 3360.5953623984747 kg 
+## Our models
 
-RMSE Test:3695.7355259853975 kg 
+### base_model
+
+### traj_model
+
+## trajectories and kpi
+
 
 ## Notebooks
 [Initial Data Review](https://colab.research.google.com/drive/1WMxJp5L7vl9GBKhZzXFJeXjvI1MgSNON#scrollTo=p6q00gZ2aoNO) 
@@ -73,10 +74,6 @@ RMSE Test:3695.7355259853975 kg
 
 [Introduction Slides](https://drive.google.com/file/d/1aDVe83t2N_of7b_DXSE8yEuQ1MaV0RpH/view?usp=drive_link) 
 
-Command to set up an alias for the data location:
-
-mc alias set dc24 https://s3.opensky-network.org/ ZG58zJvKhts2bkOX eU95azmBpK82kg96mE0TNzsWov3OvP2d
-
 ## Goal
 **We aim to hand in a solution before the final deadline!**
 
@@ -86,7 +83,6 @@ mc alias set dc24 https://s3.opensky-network.org/ ZG58zJvKhts2bkOX eU95azmBpK82k
 - Next include data from the actual trajectories, without temporal features
 - Then move to more complex models if necessary, eventually ending up with a transformer
 - Optimise for RMSE, since this is used in the final scoring of our submission
-- 
 
 # Model Features Overview
 ## FightList
@@ -114,7 +110,7 @@ This table lists all the features in the flightlist and indicates whether each f
 | flown_distance (route length in nmi)     | ✅      |
 
 ### Engineered Features
-| Feature                                  | 1. HGBR Model |
+| Feature                                  | 2. HGBR Model |
 | ---------------------------------------- | ------- |
 |weekday                                 | ✅      |
 | year sin                                | ✅      |
@@ -124,32 +120,27 @@ This table lists all the features in the flightlist and indicates whether each f
 ## Trajectories
 
 ### Engineered Features
-| Feature                                  | 1. HGBR Model |
+| Feature                                  | 3. HGBR Model |
 | ---------------------------------------- | ------- |
 |Average climb rate, 1st flight phase   | ✅      |
 |Average climb rate, 3rd flight phase    | ✅     |
 |Average altitude, 2nd flight phase    | ✅     |
 
-
-## Expected trajectories in final submission
-
-Old: We have 474972 and missed 52191 flights
-
-New: We have 464592 and missed 69525 flights
-
-
 ### Versions
 
-Versions 0-6 were submitted for the early data, from 7 onwards we worked with the final data.
-All trajectories were downloaded and processed after 8. New features from trajectories were extracted after 12
+Since the trajectory data was updated during the project phase, we downloaded and processed the data multiple times. The first few versions (0-6) were testing different aspects of the model on the early data. 
+From 7 onwards we worked with the final data (submission_set + final_submission_set).
+All trajectories were re-downloaded and processed after version 8. New features from trajectories were extracted after version 12.
 
 7. kpi > 0.8 traj_model, rest base_model on rest of data
 8. kpi > 0.8 traj model, rest base_model on all data
 9. all base_model
-10. all base_model, sorted by index (makes no sense, don't ask)
+10. all base_model, sorted by index (to test if the order of the data matters in the submission)
 11. kpi > 0.8 traj model, rest base_model on all data, sorted by index
 12. traj model only on tow > 250t and kpi > 0.8, rest base
 13. traj model with new trajectories traj model only on tow > 250t and kpi > 0.8, rest base
+14. traj model with custom weights that equal the kpi of each flight
+15. traj model with new trajectories traj model only on tow > 250t and kpi > 0.0, rest base
 
 ### Our submissions
 | File Version | RMSE    |
@@ -162,6 +153,18 @@ All trajectories were downloaded and processed after 8. New features from trajec
 | v11          | 10106.12|
 | v12          | 4341.19 |
 | v13          | 4023.11 |
+| v14          | 4525.74 |
+
+Our models continued to display better RMSE for our train and test data, but the performance did not improve as expected on the actual submission set. 
+
+We suspect part of the problem to be the actual distribution of the data. We found no flights over 250t in the data that we initially used for training our traj_model, while flights with over 250t appeared in the final_submission_set. Using the traj_model only on flights below a base_model prediction of 250t was tested (v12 and later) but the improvement form this was still smaller than just using the base_model.
+
+
+For kpi=0 it looks like the traj_model does not overfit on our data: 
+
+![overfit_test.png](overfit_test.png)
+
+#### We were unable to fully determine why our models performed worse than expected on the final data set.
 
 ## License
 

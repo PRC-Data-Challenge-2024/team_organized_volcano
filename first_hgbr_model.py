@@ -10,21 +10,22 @@ from sklearn.inspection import permutation_importance
 
 
 def create_city_categories(challenge_df, submission_df):
-
-    '''
-    This function takes the challenge and submission df and creates a dictionary for adep and ades cities. 
-    The cities are categorized to create less than 255 categories, so the column can be processed by the HGBR later on.
-    For each country at least on category exists. All cities with a count less than a threshold in one country are assigned to the same category. 
+    """
+    This function takes the challenge and submission df and creates a dictionary for adep and ades cities. The cities
+    are categorized to create less than 255 categories, so the column can be processed by the HGBR later on. For each
+    country at least on category exists. All cities with a count less than a threshold in one country are assigned to
+    the same category.
 
     Input: challenge and submission dataframe
     Output: dictionary that maps adep & ades to categories
-    '''
+    """
 
     all_flights = pd.concat([challenge_df, submission_df])
     all_flights = all_flights[['adep', 'ades', 'country_code_adep', 'country_code_ades']]
 
-    all_flights = pd.melt(all_flights, id_vars=[], value_vars=['adep', 'ades', 'country_code_adep', 'country_code_ades'], var_name='Variable', 
-                        value_name='Value')
+    all_flights = pd.melt(all_flights, id_vars=[],
+                          value_vars=['adep', 'ades', 'country_code_adep', 'country_code_ades'], var_name='Variable',
+                          value_name='Value')
 
     # Create separate DataFrames for countries and cities
     countries = all_flights[all_flights['Variable'].str.contains('country')]
@@ -49,7 +50,6 @@ def create_city_categories(challenge_df, submission_df):
 
     country_list = city_counts_final['Country'].unique()
 
-
     for country in country_list:
         condition1 = city_counts_final['Country'] == country
         condition2 = city_counts_final['Marker'] == 1
@@ -58,7 +58,7 @@ def create_city_categories(challenge_df, submission_df):
 
     category_mapping = city_counts_final.set_index('City')['Category'].astype(int).to_dict()
 
-    return(category_mapping)
+    return category_mapping
 
 
 def data_manipulation(challenge_df,
@@ -96,7 +96,8 @@ def data_manipulation(challenge_df,
     df1 = df1.merge(traj_list, on='flight_id', how='left')
     df2 = df2.merge(traj_list, on='flight_id', how='left')
 
-    columns_to_encode = ['aircraft_type', 'wtc', 'airline', 'country_code_adep', 'country_code_ades', 'adep_cat', 'ades_cat']
+    columns_to_encode = ['aircraft_type', 'wtc', 'airline', 'country_code_adep', 'country_code_ades', 'adep_cat',
+                         'ades_cat']
 
     for col in columns_to_encode:
         # Combine datasets for current column
@@ -182,7 +183,6 @@ def train_tow_hgbr(challenge_df,
             for i in result.importances_mean.argsort()[::-1]:
                 print(f"{X.columns[i]}:{result.importances_mean[i]:.3f} +/- {result.importances_std[i]:.3f}")
 
-
         # Make predictions
         y_train_pred = hgbr.predict(X_train)
         y_test_pred = hgbr.predict(X_test)
@@ -237,14 +237,14 @@ def predict_tow_hgbr(submission_df,
     base_data.loc[:, 'tow'] = y1
 
     if with_traj:
-        #base_data = submission_df[submission_df["kpi"] == 0]
+        # base_data = submission_df[submission_df["kpi"] == 0]
         traj_model_path = model_path.replace(".", "_with_traj.")
         traj_model = joblib.load(traj_model_path)
 
         traj_cols = feature_cols + ["sum_vertical_rate_ascending", "sum_vertical_rate_descending",
                                     "average_altitude_cruising",
                                     "total_duration_cruising", "average_groundspeed_cruising"]
-        traj_data = base_data[(base_data["kpi"] >= 0.8) & (base_data["tow"] <= 250000)]
+        traj_data = base_data[(base_data["kpi"] >= 0.0) & (base_data["tow"] <= 250000)]
 
         X2 = traj_data[traj_cols]
         y2 = traj_model.predict(X2)

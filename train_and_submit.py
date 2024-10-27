@@ -14,7 +14,7 @@ feature_cols = ['country_code_adep_en', 'country_code_ades_en', 'aircraft_type_e
 # Ignore Deprecations warnings
 warnings.filterwarnings("ignore", category=FutureWarning)
 
-# 1. Downlaod the data
+# 1. Download the data
 # Downloads the csv files containing the challenge_set(flightlist) from the competition S3 bucket
 s3 = S3Client()
 file_name = Path("data/challenge_set.csv")
@@ -41,5 +41,5 @@ traj_model = train_tow_hgbr(prepared_challenge_df, feature_cols=feature_cols, te
 result = predict_tow_hgbr(prepared_submission_df, feature_cols=feature_cols, with_traj=True)
 
 # 4. Submit the data (default path) with a new, manual version number
-msg = submit_solution(version_number=13)
+msg = submit_solution(version_number=15)
 print(msg)
