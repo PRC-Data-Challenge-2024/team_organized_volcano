@@ -140,7 +140,8 @@ def train_tow_hgbr(challenge_df,
                    feature_cols,
                    model_path='hgbr_model.joblib', test=False, with_traj=False, permute=False):
     """
-    Input: Challenge dataframe (flightlist only), path to save the model to
+    Input: Challenge dataframe (flightlist only), feature_cols to be used, path to save the model to,
+    flags for test mode, traj_model and permutation test
     Output: Trained ML model
     """
 

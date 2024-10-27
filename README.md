@@ -1,6 +1,6 @@
 # PRC Data Challenge
 
-Contribution of Malte Cordts, Sabrina Kerz, and Dennis Schorn to the [PRC Data Challenge 2024](https://ansperformance.eu/study/data-challenge/).
+Contribution of Malte Cordts, Sabrina Kerz, and Dennis Schorn to the [PRC Data Challenge 2024](https://ansperformance.eu/study/data-challenge/) as <b> team_organized_volcano</b>.
 This code falls under GNU GPLv3, see the license tab for the full license.
 
 ## Current rankings
@@ -53,9 +53,16 @@ Available [here](https://datacomp.opensky-network.org/api/rankings)
 
 ### base_model
 
+The main model we used for most of the project, [HGBR](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.HistGradientBoostingRegressor.html). This was initially trained on features from the flight list. For this we also engineered the features that covered the timing of the flight ([Engineered Features](#Engineered Features)) After iteratively determining the most impactful features for the model (via sklearn's [permutation_importance](https://scikit-learn.org/stable/modules/generated/sklearn.inspection.permutation_importance.html)), we used it for all our submissions. 
+
 ### traj_model
 
-## trajectories and kpi
+The secondary model, another HGBR but with additional features that contained information from the trajectories. For this we first determined how many datapoints were missing per flight. This <b> KPI </b> is the percentage of available data, and we used it to distinguish high quality data (<b> KPI </b> > 0.8) from low quality data (<b> KPI </b> <= 0.8). Then we removed all repeating constant values at the start and end of each trajectory, since these appear to be artifacts in the data without meaningful information. Next we split each trajectory into 3 phases, the <i> ascending phase </i> during which the climb rate is positive, the <i> cruising phase </i> during which the climb rate is more or less constant, and the <i> descending phase </i> during which the aircraft has a negative climb rate. We then calculated additional values to feed into the model as more features:
+- the sum of the vertical rate changes during <i> ascending </i> and <i> descending phase</i> each
+- average altitude of the <i> cruising phase </i> 
+- duration of the <i> cruising phase </i>
+- average groundspeed during the <i> cruising phase </i>
+- the <b> kpi </b>
 
 
 ## Notebooks
@@ -130,7 +137,7 @@ This table lists all the features in the flightlist and indicates whether each f
 
 Since the trajectory data was updated during the project phase, we downloaded and processed the data multiple times. The first few versions (0-6) were testing different aspects of the model on the early data. 
 From 7 onwards we worked with the final data (submission_set + final_submission_set).
-All trajectories were re-downloaded and processed after version 8. New features from trajectories were extracted after version 12.
+All trajectories were re-downloaded and processed after version 8. New features from trajectories were extracted after version 12. The specific versions were 
 
 7. kpi > 0.8 traj_model, rest base_model on rest of data
 8. kpi > 0.8 traj model, rest base_model on all data
@@ -154,6 +161,7 @@ All trajectories were re-downloaded and processed after version 8. New features 
 | v12          | 4341.19 |
 | v13          | 4023.11 |
 | v14          | 4525.74 |
+| v15          | 4446.98 |
 
 Our models continued to display better RMSE for our train and test data, but the performance did not improve as expected on the actual submission set. 
 
@@ -165,6 +173,11 @@ For kpi=0 it looks like the traj_model does not overfit on our data:
 ![overfit_test.png](overfit_test.png)
 
 #### We were unable to fully determine why our models performed worse than expected on the final data set.
+
+## Getting the code to run
+
+Make sure mc client is set up as described on data challenge page, then run <b>train_and_submit.py</b>
+
 
 ## License
 
