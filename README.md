@@ -32,26 +32,27 @@ Available [here](https://datacomp.opensky-network.org/api/rankings)
 | 20 | team_zealous_watermelon | 3024.17 | v1 |
 | 21 | team_loyal_hippo | 3029.57 | v10 |
 | 22 | team_zesty_ostrich | 3092.39 | v11 |
-| 23 | team_jolly_koala | 3254.78 | v48 |
-| 24 | team_bold_emu | 3286.56 | v3 |
-| 25 | team_motivated_baker | 3409.82 | v1 |
-| 26 | team_nice_wolf | 3595.25 | v3 |
-| 27 | team_energetic_quiver | 3683.31 | v15 |
-| 28 | **team_organized_volcano** | 3755.47 | v9 |
-| 29 | team_faithful_napkin | 3810.9 | v0 |
-| 30 | team_outspoken_engine | 3960.86 | v10 |
-| 31 | team_respectful_kangaroo | 4052.19 | v5 |
-| 32 | team_amiable_garden | 4097.9 | v17 |
-| 33 | team_nice_hippo | 4263.82 | v7 |
-| 34 | team_joyful_zeppelin | 4845.14 | v3 |
-| 35 | team_refreshing_unicorn | 6533.31 | v1 |
-| 36 | team_versatile_yacht | 6713.85 | v18 |
-| 37 | team_zippy_river | 6839.35 | v11 |
-| 38 | team_nice_jacket | 9660.8 | v5 |
-| 39 | team_zippy_horse | 12261.94 | v2 |
-| 40 | team_knowledgeable_jungle | 49479.86 | v6 |
-| 41 | team_funny_yogurt | 51510.18 | v2 |
-| 42 | team_dependable_gorilla | 95849.37 | v1 |
+| 23 | team_mindful_puzzle | 3250.64 | v3 |
+| 24 | team_jolly_koala | 3254.78 | v48 |
+| 25 | team_amiable_garden | 3264.46 | v21 |
+| 26 | team_bold_emu | 3286.56 | v3 |
+| 27 | team_motivated_baker | 3409.82 | v1 |
+| 28 | team_nice_wolf | 3595.25 | v3 |
+| 29 | team_energetic_quiver | 3683.31 | v15 |
+| 30 | **team_organized_volcano** | 3755.47 | v9 |
+| 31 | team_faithful_napkin | 3810.9 | v0 |
+| 32 | team_outspoken_engine | 3960.86 | v10 |
+| 33 | team_respectful_kangaroo | 4052.19 | v5 |
+| 34 | team_nice_hippo | 4263.82 | v7 |
+| 35 | team_joyful_zeppelin | 4837.51 | v4 |
+| 36 | team_refreshing_unicorn | 6533.31 | v1 |
+| 37 | team_versatile_yacht | 6713.85 | v18 |
+| 38 | team_zippy_river | 6839.35 | v11 |
+| 39 | team_nice_jacket | 9018.77 | v6 |
+| 40 | team_zippy_horse | 12261.94 | v2 |
+| 41 | team_knowledgeable_jungle | 20479.45 | v17 |
+| 42 | team_funny_yogurt | 51510.18 | v2 |
+| 43 | team_dependable_gorilla | 89851.11 | v4 |
 <!--result-end-->
 
 ## Our models
