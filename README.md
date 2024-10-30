@@ -24,9 +24,9 @@ Available [here](https://datacomp.opensky-network.org/api/rankings)
 | 12 | team_amazing_forest | 2695.6 | v18 |
 | 13 | team_modest_scooter | 2696.67 | v6 |
 | 14 | team_gentle_wreath | 2702.16 | v20 |
-| 15 | team_elegant_lemon | 2746.3 | v26 |
-| 16 | team_patient_net | 2752.72 | v10 |
-| 17 | team_faithful_engine | 2784.52 | v5 |
+| 15 | team_faithful_engine | 2705.24 | v6 |
+| 16 | team_elegant_lemon | 2746.3 | v26 |
+| 17 | team_patient_net | 2752.72 | v10 |
 | 18 | team_mellow_barn | 2859.32 | v14 |
 | 19 | team_exuberant_hippo | 2932.55 | v8 |
 | 20 | team_zealous_watermelon | 3024.17 | v1 |
@@ -49,8 +49,8 @@ Available [here](https://datacomp.opensky-network.org/api/rankings)
 | 37 | team_versatile_yacht | 6713.85 | v18 |
 | 38 | team_zippy_river | 6839.35 | v11 |
 | 39 | team_nice_jacket | 9018.77 | v6 |
-| 40 | team_zippy_horse | 12261.94 | v2 |
-| 41 | team_knowledgeable_jungle | 20479.45 | v17 |
+| 40 | team_zippy_horse | 11377.51 | v3 |
+| 41 | team_knowledgeable_jungle | 20100.99 | v18 |
 | 42 | team_funny_yogurt | 51510.18 | v2 |
 | 43 | team_dependable_gorilla | 89851.11 | v4 |
 <!--result-end-->
