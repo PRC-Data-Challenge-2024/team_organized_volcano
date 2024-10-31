@@ -1,9 +1,10 @@
 name: Update README with Results
 
-on:
-  schedule:
-    - cron: '0 0 * * *'  # Runs once every day at midnight UTC
-  workflow_dispatch: # Allows manual triggering
+on: {}
+# on: 
+#   schedule:
+#     - cron: '0 0 * * *'  # Runs once every day at midnight UTC
+# workflow_dispatch: # Allows manual triggering
 
 jobs:
   update-readme:
